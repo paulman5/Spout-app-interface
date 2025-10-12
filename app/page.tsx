@@ -1,3 +1,4 @@
+import BgGrain from "@/components/bg-grain-svg";
 import {
   HeroSection,
   FeaturesSection,
@@ -12,6 +13,7 @@ import {
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white w-full overflow-x-hidden flex flex-col items-center justify-center">
+      <BgGrain/>
       {/* Hero Section */}
       <HeroSection />
 

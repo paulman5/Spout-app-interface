@@ -2,65 +2,80 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { PixelTrail } from "@/components/ui/pixel-trail";
+import { ArrowRight } from "lucide-react";
 import { useScreenSize } from "@/hooks/use-screen-size";
 import { JoinMailingList } from "./join-mailing-list";
 import { PartnerTicker } from "./partner-ticker";
+import Image from "next/image";
 
 export function HeroSection() {
   const screenSize = useScreenSize();
 
   return (
-    <section className="w-full flex flex-col items-center justify-center relative min-h-screen overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <PixelTrail
-          fadeDuration={1200}
-          delay={300}
-          pixelClassName="rounded-2xl bg-emerald-600/15"
-          pixelSize={screenSize.lessThan("md") ? 40 : 60}
-        />
+    <section className="w-full flex flex-col relative min-h-screen overflow-hidden">
+      {/* Background grid pattern */}
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:35px_35px]"></div>
+
+      {/* Main content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20 flex flex-col lg:flex-row items-center justify-between min-h-screen">
+        {/* Left column - Text content */}
+        <div className="w-full lg:w-2/3 lg:pr-12 mb-12 lg:mb-0">
+          <div className="max-w-3xl">
+            {/* Main heading */}
+            <h1 className="text-3xl lg:text-5xl font-lora font-normal text-[#004040] mb-8 leading-tight">
+              The platform for what's<br />
+              next in decentralized investing
+            </h1>
+            
+            {/* Description */}
+            <p className="text-lg lg:text-xl font-noto-sans text-[#334155] mb-12 leading-relaxed">
+              Spout makes U.S. investment-grade assets like bonds and equities available
+              as secure, yield-bearing tokens, fully backed 1:1 by real ETFs.
+            </p>
+            
+            {/* CTA Button */}
+            <div className="mb-8">
+              <Link href="/app">
+                <Button
+                  size="lg"
+                  className="bg-[#004040] hover:bg-[#003030] text-white px-8 py-4 text-lg font-semibold rounded-none shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  Launch Platform
+                  <ArrowRight className="ml-3 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+            
+            {/* Secondary text */}
+            <p className="text-sm font-noto-sans text-[#6b7280] uppercase tracking-wide mb-8">
+              [JOIN THE PLATFORM THAT'S MAKING TRADITIONAL CAPITAL MORE EFFICIENT]
+            </p>
+            
+            {/* Mailing List */}
+            <div className="max-w-md">
+              <JoinMailingList />
+            </div>
+          </div>
+        </div>
+
+        {/* Right column - SVG graphic */}
+        <div className="w-full lg:w-1/3 flex items-center justify-center lg:justify-end">
+          <div className="w-full max-w-lg">
+            <Image
+              src="/spout-water-tokens.svg"
+              alt="Spout Water Tokens"
+              width={453}
+              height={498}
+              className="w-full h-auto"
+              priority
+            />
+          </div>
+        </div>
       </div>
 
-      <div className="relative z-10 w-full max-w-2xl mx-auto px-4 py-20 flex flex-col items-center justify-center">
-        <div className="text-center mb-16 w-full">
-          <Badge
-            variant="secondary"
-            className="mb-6 px-4 py-2 text-sm font-medium bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-100 hover:text-blue-800 hover:border-blue-200"
-          >
-            <Zap className="w-4 h-4 mr-2" />
-            Live Trading Platform
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-8 tracking-tight">
-            Spout Finance
-          </h1>
-          <p className="text-lg md:text-xl text-slate-600 mb-12 font-light leading-relaxed break-words text-center w-full">
-            Unlock the power of TradFi with DeFi. Verify, Buy and integrate
-            TradFi assets into your DeFi playbook and track your portfolio
-            through our on-chain analytics dashboard.
-          </p>
-        </div>
-
-        <div className="flex justify-center mb-20 w-full">
-          <Link href="/app">
-            <Button
-              size="lg"
-              className="bg-blue-400 hover:bg-blue-300 data-[hovered]:bg-blue-300 text-white px-10 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.01]"
-            >
-              Launch Platform
-              <ArrowRight className="ml-3 h-5 w-5" />
-            </Button>
-          </Link>
-        </div>
-
-        {/* Mailing List Join Box */}
-        <div className="flex flex-col items-center justify-center mb-10">
-          <JoinMailingList />
-        </div>
-
-        {/* Partner Ticker */}
-        <div className="w-full max-w-4xl mx-auto mt-20">
+      {/* Compatible Networks Section */}
+      <div className="relative z-10 w-full">
+        <div className="max-w-7xl mx-auto">
           <PartnerTicker />
         </div>
       </div>

@@ -10,7 +10,7 @@ interface BgGrainProps extends React.SVGProps<SVGSVGElement> {
 const BgGrain: React.FC<BgGrainProps> = ({
   width = "100%",
   height = "100%",
-  opacity = 0.32,
+  opacity = 0.42,
   fillOpacity = 0.12,
   className,
   style,

@@ -38,6 +38,8 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
+        lora: ["var(--font-lora)", ...defaultTheme.fontFamily.serif],
+        "noto-sans": ["var(--font-noto-sans)", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",

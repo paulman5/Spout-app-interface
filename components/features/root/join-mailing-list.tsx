@@ -77,17 +77,17 @@ export function JoinMailingList() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="flex flex-col sm:flex-row gap-2 w-full max-w-xs mx-auto items-center"
+      className="flex flex-col sm:flex-row gap-2 w-full max-w-sm items-center"
     >
       {!joined && (
         <Input
           type="email"
-          placeholder="Join our mailing list"
+          placeholder="Enter your email to join our mailing list"
           value={email}
           onChange={handleEmailChange}
           onBlur={handleEmailBlur}
           autoComplete="email"
-          className={`flex-1 w-56 bg-white/80 border-slate-200 focus-visible:ring-emerald-600 ${
+          className={`flex-1 w-72 bg-white/80 border-slate-200 focus-visible:ring-emerald-600 ${
             error ? "border-red-300 focus-visible:ring-red-400" : ""
           }`}
           disabled={loading}
@@ -105,7 +105,7 @@ export function JoinMailingList() {
           >
             <JoinButton
               type="submit"
-              className="bg-emerald-600 hover:bg-emerald-700 data-[hovered]:bg-emerald-700 text-white px-6 py-2 rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-[#DAE5F2] hover:bg-[#DAE5F2] data-[hovered]:bg-[#DAE5F2] border-2 border-[#A7C6ED] text-[#3D5678] px-6 py-2 rounded-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
               isDisabled={
                 loading || (email.length > 0 && !isValidEmail(email.trim()))
               }

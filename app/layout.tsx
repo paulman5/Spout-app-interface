@@ -2,7 +2,7 @@ import "./globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import "react-toastify/dist/ReactToastify.css";
 import type { Metadata } from "next";
-import { Public_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Public_Sans, IBM_Plex_Mono, Lora, Noto_Sans } from "next/font/google";
 import { Providers } from "@/components/providers";
 import { RumInit } from "@/aws/rum-init";
 import { cn } from "@/lib/utils";
@@ -17,6 +17,14 @@ const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-mono",
+});
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--font-lora",
+});
+const notoSans = Noto_Sans({
+  subsets: ["latin"],
+  variable: "--font-noto-sans",
 });
 export const metadata: Metadata = {
   title: "Spout Finance",
@@ -73,6 +81,8 @@ export default async function RootLayout({
           "min-h-screen flex flex-col bg-gray-50 font-sans antialiased",
           publicSans.variable,
           ibmPlexMono.variable,
+          lora.variable,
+          notoSans.variable,
         )}
       >
         <RumInit />
