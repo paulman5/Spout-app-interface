@@ -43,14 +43,18 @@ import { useChainId } from "wagmi";
 export function useContractAddress(contract: keyof typeof contractaddresses) {
   const chainId = useChainId();
   console.log("current chainID:", chainId);
-  const mapping = contractaddresses[contract] as Record<number, string> | undefined;
+  const mapping = contractaddresses[contract] as
+    | Record<number, string>
+    | undefined;
   if (!mapping) {
     console.error(`Unknown contract mapping for key: ${String(contract)}`);
     return undefined as any;
   }
   const value = mapping[chainId];
   if (!value) {
-    console.error(`No address for chainId ${chainId} in mapping ${String(contract)}`);
+    console.error(
+      `No address for chainId ${chainId} in mapping ${String(contract)}`,
+    );
   }
   return value as any;
 }

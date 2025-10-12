@@ -20,11 +20,13 @@ class ClientCache {
   async getOrFetch<T>(
     key: string,
     fetcher: () => Promise<T>,
-    ttlMs: number = 5 * 60 * 1000 // 5 minutes default
+    ttlMs: number = 5 * 60 * 1000, // 5 minutes default
   ): Promise<T> {
     // Prevent infinite loops by checking for circular dependencies
     if (key.length > 200) {
-      throw new Error(`Cache key too long, possible infinite loop: ${key.substring(0, 50)}...`);
+      throw new Error(
+        `Cache key too long, possible infinite loop: ${key.substring(0, 50)}...`,
+      );
     }
 
     // Check if we have a valid cached entry (L1 - memory)
@@ -60,23 +62,28 @@ class ClientCache {
     // Create and store the pending request with timeout
     const request = Promise.race([
       fetcher(),
-      new Promise<never>((_, reject) => 
-        setTimeout(() => reject(new Error(`Request timeout for ${key}`)), 30000)
-      )
+      new Promise<never>((_, reject) =>
+        setTimeout(
+          () => reject(new Error(`Request timeout for ${key}`)),
+          30000,
+        ),
+      ),
     ]).then(
       (data) => {
         this.set(key, data, ttlMs);
         // Write-through to IndexedDB (L2)
-        this.idbSet(key, { data, timestamp: Date.now(), ttl: ttlMs }).catch(() => {
-          // Swallow IDB errors; memory cache still works
-        });
+        this.idbSet(key, { data, timestamp: Date.now(), ttl: ttlMs }).catch(
+          () => {
+            // Swallow IDB errors; memory cache still works
+          },
+        );
         this.pendingRequests.delete(key);
         return data;
       },
       (error) => {
         this.pendingRequests.delete(key);
         throw error;
-      }
+      },
     );
 
     this.pendingRequests.set(key, request);
@@ -92,7 +99,7 @@ class ClientCache {
       timestamp: Date.now(),
       ttl: ttlMs,
     };
-    
+
     this.cache.set(key, entry);
   }
 
@@ -101,7 +108,7 @@ class ClientCache {
    */
   private get<T>(key: string): T | null {
     const entry = this.cache.get(key);
-    
+
     if (!entry) {
       return null;
     }
@@ -131,7 +138,7 @@ class ClientCache {
       }
     });
 
-    keysToDelete.forEach(key => this.cache.delete(key));
+    keysToDelete.forEach((key) => this.cache.delete(key));
   }
 
   /**
@@ -236,15 +243,18 @@ class ClientCache {
 const clientCache = new ClientCache();
 
 // Cleanup expired entries every 5 minutes
-if (typeof window !== 'undefined') {
-  const cleanupInterval = setInterval(() => {
-    clientCache.cleanup();
-    // Opportunistic prune of IndexedDB expired rows
-    clientCache.idbCleanupExpired().catch(() => {});
-  }, 5 * 60 * 1000);
-  
+if (typeof window !== "undefined") {
+  const cleanupInterval = setInterval(
+    () => {
+      clientCache.cleanup();
+      // Opportunistic prune of IndexedDB expired rows
+      clientCache.idbCleanupExpired().catch(() => {});
+    },
+    5 * 60 * 1000,
+  );
+
   // Clear interval on page unload to prevent memory leaks
-  window.addEventListener('beforeunload', () => {
+  window.addEventListener("beforeunload", () => {
     clearInterval(cleanupInterval);
   });
 }
@@ -266,7 +276,7 @@ export const clientCacheHelpers = {
         }
         return response.json();
       },
-      5 * 60 * 1000 // 5 minutes client cache - shorter since no server cache
+      5 * 60 * 1000, // 5 minutes client cache - shorter since no server cache
     );
   },
 
@@ -283,7 +293,7 @@ export const clientCacheHelpers = {
         }
         return response.json();
       },
-      5 * 60 * 1000 // 5 minutes client cache - shorter since no server cache
+      5 * 60 * 1000, // 5 minutes client cache - shorter since no server cache
     );
   },
 
@@ -300,7 +310,7 @@ export const clientCacheHelpers = {
         }
         return response.json();
       },
-      15 * 60 * 1000 // 15 minutes client cache for yield data
+      15 * 60 * 1000, // 15 minutes client cache for yield data
     );
   },
 
@@ -308,14 +318,14 @@ export const clientCacheHelpers = {
    * Cached batch stock data fetch
    */
   async fetchBatchStockData(tickers: string[]) {
-    const cacheKey = `batch-stocks-${tickers.sort().join(',')}`;
+    const cacheKey = `batch-stocks-${tickers.sort().join(",")}`;
     return clientCache.getOrFetch(
       cacheKey,
       async () => {
-        const response = await fetch('/api/stocks/batch', {
-          method: 'POST',
+        const response = await fetch("/api/stocks/batch", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({ tickers }),
         });
@@ -324,7 +334,7 @@ export const clientCacheHelpers = {
         }
         return response.json();
       },
-      5 * 60 * 1000 // 5 minutes client cache for batch data
+      5 * 60 * 1000, // 5 minutes client cache for batch data
     );
   },
 };

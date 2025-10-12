@@ -39,18 +39,31 @@ function computeRangeParams(range: RangePreset) {
   const toIso = (d: Date) => d.toISOString();
   if (range === "7d") {
     const start = new Date(now.getTime() - 7 * 24 * 3600 * 1000);
-    return { timeframe: "1Hour", start: toIso(start), end: toIso(now), limit: 1000 } as const;
+    return {
+      timeframe: "1Hour",
+      start: toIso(start),
+      end: toIso(now),
+      limit: 1000,
+    } as const;
   }
   if (range === "30d") {
     const start = new Date(now.getTime() - 30 * 24 * 3600 * 1000);
-    return { timeframe: "1Day", start: toIso(start), end: toIso(now), limit: 60 } as const;
+    return {
+      timeframe: "1Day",
+      start: toIso(start),
+      end: toIso(now),
+      limit: 60,
+    } as const;
   }
   // 90d default
   const start = new Date(now.getTime() - 90 * 24 * 3600 * 1000);
-  return { timeframe: "1Day", start: toIso(start), end: toIso(now), limit: 120 } as const;
+  return {
+    timeframe: "1Day",
+    start: toIso(start),
+    end: toIso(now),
+    limit: 120,
+  } as const;
 }
-
-
 
 async function fetchHistoricalData(
   ticker: string,
@@ -103,7 +116,14 @@ async function fetchHistoricalData(
         if (b && typeof b.c === "number") {
           const t = b.t || new Date().toISOString();
           return [
-            { time: t, open: b.o ?? b.c, high: b.h ?? b.c, low: b.l ?? b.c, close: b.c, volume: b.v ?? 0 },
+            {
+              time: t,
+              open: b.o ?? b.c,
+              high: b.h ?? b.c,
+              low: b.l ?? b.c,
+              close: b.c,
+              volume: b.v ?? 0,
+            },
           ];
         }
       }
@@ -122,7 +142,9 @@ async function fetchHistoricalData(
         const p = q?.quotes?.[ticker]?.ap || q?.quotes?.[ticker]?.bp;
         if (typeof p === "number" && isFinite(p) && p > 0) {
           const today = new Date().toISOString();
-          const yesterday = new Date(Date.now() - 24 * 3600 * 1000).toISOString();
+          const yesterday = new Date(
+            Date.now() - 24 * 3600 * 1000,
+          ).toISOString();
           return [
             { time: yesterday, open: p, high: p, low: p, close: p, volume: 0 },
             { time: today, open: p, high: p, low: p, close: p, volume: 0 },
@@ -167,7 +189,10 @@ interface StockResponse {
   dataSource: string;
 }
 
-async function fetchStockDataFromAPI(ticker: string, range: RangePreset): Promise<StockResponse> {
+async function fetchStockDataFromAPI(
+  ticker: string,
+  range: RangePreset,
+): Promise<StockResponse> {
   console.log("API Configuration Status:", {
     hasApiKey: !!ALPACA_API_KEY,
     hasApiSecret: !!ALPACA_API_SECRET,
@@ -240,10 +265,17 @@ async function fetchStockDataFromAPI(ticker: string, range: RangePreset): Promis
         const ask = typeof quote?.ap === "number" ? quote.ap : undefined;
         const bid = typeof quote?.bp === "number" ? quote.bp : undefined;
         const midpoint =
-          typeof ask === "number" && typeof bid === "number" && isFinite(ask) && isFinite(bid)
+          typeof ask === "number" &&
+          typeof bid === "number" &&
+          isFinite(ask) &&
+          isFinite(bid)
             ? (ask + bid) / 2
             : undefined;
-        if (typeof midpoint === "number" && isFinite(midpoint) && midpoint > 0) {
+        if (
+          typeof midpoint === "number" &&
+          isFinite(midpoint) &&
+          midpoint > 0
+        ) {
           currentPrice = midpoint;
         }
       }
@@ -285,7 +317,9 @@ export async function GET(
     // Validate required env for upstream API
     if (!ALPACA_API_KEY || !ALPACA_API_SECRET) {
       return new Response(
-        JSON.stringify({ error: "Server misconfiguration: missing Alpaca API keys" }),
+        JSON.stringify({
+          error: "Server misconfiguration: missing Alpaca API keys",
+        }),
         { status: 500 },
       );
     }
@@ -293,7 +327,8 @@ export async function GET(
     // Range from query (?range=7d|30d|90d). Default 90d.
     const { searchParams } = new URL(request.url);
     const rq = searchParams.get("range") as RangePreset | null;
-    const range: RangePreset = rq === "7d" || rq === "30d" || rq === "90d" ? rq : "90d";
+    const range: RangePreset =
+      rq === "7d" || rq === "30d" || rq === "90d" ? rq : "90d";
 
     const stockData = await fetchStockDataFromAPI(ticker, range);
     console.log("🎯 Final stock response for", ticker);

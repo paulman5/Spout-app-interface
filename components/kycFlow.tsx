@@ -66,7 +66,8 @@ export default function KYCFlow() {
   const [error, setError] = useState<string>("");
   const [claimAdded, setClaimAdded] = useState(false);
   const [cooldownUntilMs, setCooldownUntilMs] = useState<number | null>(null);
-  const [cooldownRemainingSeconds, setCooldownRemainingSeconds] = useState<number>(0);
+  const [cooldownRemainingSeconds, setCooldownRemainingSeconds] =
+    useState<number>(0);
   const gatewayAddress = useContractAddress("gateway");
   const idFactoryAddress = useContractAddress("idfactory");
   const issuerAddress = useContractAddress("issuer");
@@ -143,7 +144,9 @@ export default function KYCFlow() {
     if (isConnected) {
       checkAndSwitchNetwork().catch((error: Error) => {
         console.error("Failed to switch network in KYC flow:", error);
-        setError("Failed to switch to Pharos network. Please try switching manually.");
+        setError(
+          "Failed to switch to Pharos network. Please try switching manually.",
+        );
       });
     }
   }, [isConnected, checkAndSwitchNetwork]);
@@ -412,7 +415,13 @@ export default function KYCFlow() {
     } else if (isIdentityVerified && isClaimAdded) {
       setCurrentStep(4); // Stay at the last step when complete
     }
-  }, [isConnected, isDeployed, isIdentityVerified, isClaimAdded, hasExistingIdentity]);
+  }, [
+    isConnected,
+    isDeployed,
+    isIdentityVerified,
+    isClaimAdded,
+    hasExistingIdentity,
+  ]);
 
   // Update onchain ID address when identity is deployed or already exists
   useEffect(() => {
@@ -426,8 +435,6 @@ export default function KYCFlow() {
       console.log("Identity address from contract:", onchainIDAddress);
     }
   }, [isDeployed, onchainIDAddress, hasExistingIdentity]);
-
-
 
   // Track when claim is successfully added
   useEffect(() => {
@@ -486,19 +493,25 @@ export default function KYCFlow() {
           Complete your verification to access advanced trading features. This
           process creates your onchain identity and verifies your credentials.
         </p>
-        
+
         {/* Network Status Indicator */}
         {isConnected && (
           <div className="flex justify-center">
-            <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-              isPharos 
-                ? 'bg-emerald-100 text-emerald-800' 
-                : 'bg-yellow-100 text-yellow-800'
-            }`}>
-              <div className={`w-2 h-2 rounded-full mr-2 ${
-                isPharos ? 'bg-emerald-500' : 'bg-yellow-500'
-              }`} />
-              {isPharos ? 'Connected to Pharos Network' : 'Wrong Network - Switching...'}
+            <div
+              className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+                isPharos
+                  ? "bg-emerald-100 text-emerald-800"
+                  : "bg-yellow-100 text-yellow-800"
+              }`}
+            >
+              <div
+                className={`w-2 h-2 rounded-full mr-2 ${
+                  isPharos ? "bg-emerald-500" : "bg-yellow-500"
+                }`}
+              />
+              {isPharos
+                ? "Connected to Pharos Network"
+                : "Wrong Network - Switching..."}
             </div>
           </div>
         )}
@@ -603,7 +616,12 @@ export default function KYCFlow() {
 
                       <Button
                         onClick={handleDeployIdentity}
-                        isDisabled={isDeploying || isConfirming || !isConnected || !isPharos}
+                        isDisabled={
+                          isDeploying ||
+                          isConfirming ||
+                          !isConnected ||
+                          !isPharos
+                        }
                         className="w-full"
                       >
                         {isDeploying || isConfirming ? (
@@ -690,7 +708,8 @@ export default function KYCFlow() {
                             Identity Verification Complete
                           </p>
                           <p className="text-sm text-emerald-600">
-                            Your identity is verified in the identity registry and you can mint tokens.
+                            Your identity is verified in the identity registry
+                            and you can mint tokens.
                           </p>
                         </div>
                       </div>
@@ -725,7 +744,14 @@ export default function KYCFlow() {
 
                       <Button
                         onClick={handleKYCSignature}
-                        isDisabled={!address || !onchainIDAddress || isLoading || !isPharos || (cooldownUntilMs !== null && cooldownRemainingSeconds > 0)}
+                        isDisabled={
+                          !address ||
+                          !onchainIDAddress ||
+                          isLoading ||
+                          !isPharos ||
+                          (cooldownUntilMs !== null &&
+                            cooldownRemainingSeconds > 0)
+                        }
                         className="w-full"
                       >
                         {isLoading ? (
@@ -735,7 +761,8 @@ export default function KYCFlow() {
                           </>
                         ) : !isPharos ? (
                           "Switch to Pharos Network"
-                        ) : cooldownUntilMs !== null && cooldownRemainingSeconds > 0 ? (
+                        ) : cooldownUntilMs !== null &&
+                          cooldownRemainingSeconds > 0 ? (
                           `Retry in ${Math.max(1, cooldownRemainingSeconds)}s`
                         ) : (
                           "Get KYC Signature"
@@ -764,7 +791,8 @@ export default function KYCFlow() {
                           Identity Verification Completed
                         </p>
                         <p className="text-sm text-emerald-600">
-                          Your identity is verified in the identity registry and you can mint tokens.
+                          Your identity is verified in the identity registry and
+                          you can mint tokens.
                         </p>
                       </div>
                     </div>
@@ -783,7 +811,10 @@ export default function KYCFlow() {
                       <Button
                         onClick={handleAddClaim}
                         isDisabled={
-                          isAddingClaim || isConfirmingClaim || !kycSignature || !isPharos
+                          isAddingClaim ||
+                          isConfirmingClaim ||
+                          !kycSignature ||
+                          !isPharos
                         }
                         className="w-full"
                       >

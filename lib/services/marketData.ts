@@ -112,11 +112,11 @@ export const fetchStockData = async (ticker: string): Promise<StockData> => {
 export const fetchAllStocks = async (): Promise<StockData[]> => {
   try {
     // Use cached batch API to reduce API calls
-    const tickers = popularStocks.map(stock => stock.ticker);
+    const tickers = popularStocks.map((stock) => stock.ticker);
     const batchData = await clientCacheHelpers.fetchBatchStockData(tickers);
-    
+
     // Transform batch response to StockData format
-    const results = popularStocks.map(stock => {
+    const results = popularStocks.map((stock) => {
       const data = batchData[stock.ticker];
       if (!data) {
         return {
@@ -143,13 +143,15 @@ export const fetchAllStocks = async (): Promise<StockData[]> => {
       };
     });
 
-    return results.filter(stock => stock !== null) as StockData[];
+    return results.filter((stock) => stock !== null) as StockData[];
   } catch (error) {
     console.error("Error fetching stocks in batch:", error);
-    
+
     // Fallback to individual requests if batch fails
     try {
-      const promises = popularStocks.map((stock) => fetchStockData(stock.ticker));
+      const promises = popularStocks.map((stock) =>
+        fetchStockData(stock.ticker),
+      );
       const results = await Promise.all(promises);
       return results.filter((stock) => stock !== null) as StockData[];
     } catch (fallbackError) {

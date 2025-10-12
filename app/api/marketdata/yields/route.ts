@@ -29,7 +29,10 @@ async function fetchYieldDataFromAPI(symbol: string): Promise<YieldData> {
 
   // Get current price for yield calculation
   const priceUrl = `https://data.alpaca.markets/v2/stocks/quotes/latest?symbols=${symbol}`;
-  const priceRes = await fetchWithTimeout(priceUrl, { ...options, timeoutMs: 7000 });
+  const priceRes = await fetchWithTimeout(priceUrl, {
+    ...options,
+    timeoutMs: 7000,
+  });
   const priceData = await priceRes.json();
   console.log("Price data:", priceData);
   const currentPrice = priceData.quotes?.[symbol]?.ap || 0; // Using ask price
@@ -42,11 +45,15 @@ async function fetchYieldDataFromAPI(symbol: string): Promise<YieldData> {
 
   const dividendUrl = `https://data.alpaca.markets/v1/corporate-actions?symbols=${symbol}&types=cash_dividend&start=${oneYearAgo.toISOString().split("T")[0]}&end=${today.toISOString().split("T")[0]}`;
   console.log("Dividend URL:", dividendUrl);
-  const dividendRes = await fetchWithTimeout(dividendUrl, { ...options, timeoutMs: 7000 });
+  const dividendRes = await fetchWithTimeout(dividendUrl, {
+    ...options,
+    timeoutMs: 7000,
+  });
   const dividendResponseData = await dividendRes.json();
 
   // Fix how we access the corporate_actions data
-  const dividendData = dividendResponseData.corporate_actions?.cash_dividends || [];
+  const dividendData =
+    dividendResponseData.corporate_actions?.cash_dividends || [];
 
   // Get the most recent dividend payment
   let yieldRate = 0;
@@ -70,10 +77,14 @@ async function fetchYieldDataFromAPI(symbol: string): Promise<YieldData> {
         .slice(0, Math.min(uniqueMonths, 12)) // Use at most 12 months of data
         .reduce((sum, div) => sum + div.rate, 0);
 
-      const averageMonthlyDividend = totalDividends / Math.min(uniqueMonths, 12);
+      const averageMonthlyDividend =
+        totalDividends / Math.min(uniqueMonths, 12);
 
       // Calculate annual yield:
-      yieldRate = currentPrice > 0 ? ((averageMonthlyDividend * 12) / currentPrice) * 100 : 0;
+      yieldRate =
+        currentPrice > 0
+          ? ((averageMonthlyDividend * 12) / currentPrice) * 100
+          : 0;
     }
   }
 
@@ -106,9 +117,12 @@ export async function GET(request: Request) {
     });
   } catch (error) {
     console.error("❌ Error fetching yield data:", error);
-    return new Response(JSON.stringify({ error: "Failed to fetch yield data" }), {
-      status: 500,
-      headers: { "content-type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ error: "Failed to fetch yield data" }),
+      {
+        status: 500,
+        headers: { "content-type": "application/json" },
+      },
+    );
   }
 }

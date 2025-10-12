@@ -26,17 +26,20 @@ export function useOnchainID({
   const isPharos = chainId === pharos.id;
 
   // Initialize cache from localStorage immediately to prevent initial fetch
-  const [cachedIdentityAddress, setCachedIdentityAddress] = useState<string | null>(() => {
+  const [cachedIdentityAddress, setCachedIdentityAddress] = useState<
+    string | null
+  >(() => {
     if (typeof window !== "undefined" && userAddress) {
       return localStorage.getItem(`identityAddress_${userAddress}_${chainId}`);
     }
     return null;
   });
-  
+
   // First check if onchain ID actually exists using ID factory
   // Only fetch if we don't have a cached result or if user address changed
-  const canReadIdentity = !!userAddress && !!idFactoryAddress && isPharos && !cachedIdentityAddress;
-  
+  const canReadIdentity =
+    !!userAddress && !!idFactoryAddress && isPharos && !cachedIdentityAddress;
+
   console.log("[useOnchainID] 🔍 Fetch decision:", {
     userAddress,
     idFactoryAddress,
@@ -60,7 +63,7 @@ export function useOnchainID({
   const rwaTokenAddress = contractaddresses.SpoutLQDtoken[
     chainId as 84532 | 688688
   ] as `0x${string}`;
-  
+
   const {
     data: identityRegistryAddress,
     isLoading: isLoadingRegistry,
@@ -72,7 +75,8 @@ export function useOnchainID({
   });
 
   // Check verification status using identity registry
-  const canReadVerification = !!userAddress && !!identityRegistryAddress && isPharos;
+  const canReadVerification =
+    !!userAddress && !!identityRegistryAddress && isPharos;
   const {
     data: isVerified,
     isLoading: isVerificationLoading,
@@ -88,11 +92,13 @@ export function useOnchainID({
 
   // Use cached address if available, otherwise use the fetched result
   const onchainID = cachedIdentityAddress || actualOnchainID;
-  
+
   // Only show loading if we don't have a cached result and are actually fetching
   // If we have a cached identity address, we don't need to show loading for registry/verification
-  const isLoading = !cachedIdentityAddress && (isLoadingActualID || isLoadingRegistry || isVerificationLoading);
-  
+  const isLoading =
+    !cachedIdentityAddress &&
+    (isLoadingActualID || isLoadingRegistry || isVerificationLoading);
+
   console.log("[useOnchainID] 🔍 Loading state:", {
     cachedIdentityAddress,
     isLoadingActualID,
@@ -101,7 +107,7 @@ export function useOnchainID({
     isLoading,
   });
   const error = actualIDError || registryError || verificationError;
-  
+
   // Combined refetch function
   const refetchIdentity = async () => {
     setCachedIdentityAddress(null); // Clear cache to force refetch
@@ -125,20 +131,24 @@ export function useOnchainID({
   // Effect to load cached data from localStorage once userAddress is available
   useEffect(() => {
     if (typeof window !== "undefined" && userAddress) {
-      const storedHasEverHad = localStorage.getItem(`hasEverHadOnchainID_${userAddress}_${chainId}`);
+      const storedHasEverHad = localStorage.getItem(
+        `hasEverHadOnchainID_${userAddress}_${chainId}`,
+      );
       const initialHasEverHad = storedHasEverHad === "true";
-      
+
       console.log("[useOnchainID] 🔍 Loading from localStorage (useEffect):", {
         userAddress,
         storedHasEverHad,
         initialHasEverHad,
         cachedIdentityAddress,
       });
-      
+
       setHasEverHadOnchainID(initialHasEverHad);
       // Only set cached address if it's not already set from initial state
       if (!cachedIdentityAddress) {
-        const storedIdentityAddress = localStorage.getItem(`identityAddress_${userAddress}_${chainId}`);
+        const storedIdentityAddress = localStorage.getItem(
+          `identityAddress_${userAddress}_${chainId}`,
+        );
         setCachedIdentityAddress(storedIdentityAddress);
       }
     }
@@ -150,7 +160,10 @@ export function useOnchainID({
       setCachedIdentityAddress(actualOnchainID);
       // Also save to localStorage for persistence
       if (typeof window !== "undefined" && userAddress) {
-        localStorage.setItem(`identityAddress_${userAddress}_${chainId}`, actualOnchainID);
+        localStorage.setItem(
+          `identityAddress_${userAddress}_${chainId}`,
+          actualOnchainID,
+        );
       }
     }
   }, [actualOnchainID, userAddress, chainId]);
@@ -174,7 +187,10 @@ export function useOnchainID({
       );
       setHasEverHadOnchainID(true);
       // Store in localStorage for persistence across remounts
-      localStorage.setItem(`hasEverHadOnchainID_${userAddress}_${chainId}`, "true");
+      localStorage.setItem(
+        `hasEverHadOnchainID_${userAddress}_${chainId}`,
+        "true",
+      );
       console.log(
         "[useOnchainID] 💾 Stored in localStorage:",
         `hasEverHadOnchainID_${userAddress}_${chainId}`,
@@ -191,7 +207,9 @@ export function useOnchainID({
 
     // Check if localStorage still has the value
     if (userAddress && typeof window !== "undefined") {
-      const stored = localStorage.getItem(`hasEverHadOnchainID_${userAddress}_${chainId}`);
+      const stored = localStorage.getItem(
+        `hasEverHadOnchainID_${userAddress}_${chainId}`,
+      );
       console.log("[useOnchainID] 🔍 localStorage check:", {
         key: `hasEverHadOnchainID_${userAddress}_${chainId}`,
         stored,

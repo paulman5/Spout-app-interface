@@ -6,7 +6,8 @@ import { contractaddresses } from "@/lib/addresses";
 
 export function useTotalSupply() {
   const chainId = useChainId();
-  const tokenAddress = contractaddresses.SpoutLQDtoken[chainId as 84532 | 688688];
+  const tokenAddress =
+    contractaddresses.SpoutLQDtoken[chainId as 84532 | 688688];
 
   const { data: totalSupply, isLoading } = useReadContract({
     address: tokenAddress as `0x${string}`,

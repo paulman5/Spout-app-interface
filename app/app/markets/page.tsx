@@ -169,11 +169,11 @@ function MarketsPage() {
     setRefreshing(true);
     try {
       // Use batch API for better performance
-      const tickers = popularStocks.map(stock => stock.ticker);
+      const tickers = popularStocks.map((stock) => stock.ticker);
       const batchData = await clientCacheHelpers.fetchBatchStockData(tickers);
-      
+
       // Transform batch response to StockData format
-      const results = popularStocks.map(stock => {
+      const results = popularStocks.map((stock) => {
         const data = batchData[stock.ticker];
         if (!data) {
           return {
@@ -200,7 +200,9 @@ function MarketsPage() {
         };
       });
 
-      const validStocks = results.filter(stock => stock !== null) as StockData[];
+      const validStocks = results.filter(
+        (stock) => stock !== null,
+      ) as StockData[];
       setStocks(validStocks);
       setLastUpdated(new Date());
     } catch (error) {

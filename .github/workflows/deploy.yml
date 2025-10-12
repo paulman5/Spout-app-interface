@@ -100,7 +100,7 @@ jobs:
           export npm_config_cache="$HOME/.npm"
           mkdir -p "$TMPDIR" "$npm_config_cache"
           export NODE_ENV=production
-          
+
           echo "== Node.js setup completed =="
           echo "Node version: $(node --version)"
           echo "NPM version: $(npm --version)"
@@ -133,7 +133,7 @@ jobs:
             exit 1
           }
           echo "== Build completed =="
-          
+
           echo "== Pruning dev dependencies =="
           npm prune --omit=dev || true
 
@@ -170,7 +170,7 @@ jobs:
           df -h || true
           echo "== Inodes (post) =="
           df -i || true
-          
+
           echo "== Deployment completed successfully =="
           EOS
 

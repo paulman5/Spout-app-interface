@@ -27,10 +27,10 @@ export function useMarketStocks() {
 
   useEffect(() => {
     fetchStocks();
-    
+
     // Auto-refresh every 15 minutes to reduce Vercel compute usage
     const interval = setInterval(fetchStocks, 15 * 60 * 1000);
-    
+
     return () => {
       clearInterval(interval);
     };

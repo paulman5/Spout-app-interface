@@ -35,7 +35,9 @@ interface MarketDataResponse {
   };
 }
 
-async function fetchMarketDataFromAPI(symbol: string): Promise<MarketDataResponse> {
+async function fetchMarketDataFromAPI(
+  symbol: string,
+): Promise<MarketDataResponse> {
   const options = {
     method: "GET",
     headers: {
@@ -48,7 +50,10 @@ async function fetchMarketDataFromAPI(symbol: string): Promise<MarketDataRespons
   // Step 1: Get latest quote for fallback price
   const latestUrl = `https://data.alpaca.markets/v2/stocks/quotes/latest?symbols=${symbol}`;
   console.log("📡 Fetching quote from:", latestUrl);
-  const latestRes = await fetchWithTimeout(latestUrl, { ...options, timeoutMs: 7000 });
+  const latestRes = await fetchWithTimeout(latestUrl, {
+    ...options,
+    timeoutMs: 7000,
+  });
   const latestData = (await latestRes.json()) as {
     quotes: { [symbol: string]: AlpacaQuote };
   };
@@ -60,7 +65,10 @@ async function fetchMarketDataFromAPI(symbol: string): Promise<MarketDataRespons
   // Step 2: Get the most recent 10 bars
   const barsUrl = `https://data.alpaca.markets/v2/stocks/bars?symbols=${symbol}&timeframe=1Day&limit=10`;
   console.log("📡 Fetching bars from:", barsUrl);
-  const barsRes = await fetchWithTimeout(barsUrl, { ...options, timeoutMs: 7000 });
+  const barsRes = await fetchWithTimeout(barsUrl, {
+    ...options,
+    timeoutMs: 7000,
+  });
   const barsData = (await barsRes.json()) as AlpacaBarsResponse;
 
   const bars = barsData.bars?.[symbol] ?? [];
@@ -133,25 +141,33 @@ async function fetchYieldDataFromAlpaca(symbol: string, options: any) {
   const dividendRes = await fetch(dividendUrl, options);
   const dividendResponseData = await dividendRes.json();
 
-  const dividendData = dividendResponseData.corporate_actions?.cash_dividends || [];
+  const dividendData =
+    dividendResponseData.corporate_actions?.cash_dividends || [];
 
   let yieldRate = 0;
   if (Array.isArray(dividendData) && dividendData.length > 0) {
     const sortedDividends = dividendData
       .filter((div: any) => div.symbol === symbol)
-      .sort((a: any, b: any) => new Date(b.ex_date).getTime() - new Date(a.ex_date).getTime());
+      .sort(
+        (a: any, b: any) =>
+          new Date(b.ex_date).getTime() - new Date(a.ex_date).getTime(),
+      );
 
     if (sortedDividends.length > 0) {
       const uniqueMonths = new Set(
-        sortedDividends.map((div) => div.ex_date.substring(0, 7))
+        sortedDividends.map((div) => div.ex_date.substring(0, 7)),
       ).size;
 
       const totalDividends = sortedDividends
         .slice(0, Math.min(uniqueMonths, 12))
         .reduce((sum, div) => sum + div.rate, 0);
 
-      const averageMonthlyDividend = totalDividends / Math.min(uniqueMonths, 12);
-      yieldRate = currentPrice > 0 ? ((averageMonthlyDividend * 12) / currentPrice) * 100 : 0;
+      const averageMonthlyDividend =
+        totalDividends / Math.min(uniqueMonths, 12);
+      yieldRate =
+        currentPrice > 0
+          ? ((averageMonthlyDividend * 12) / currentPrice) * 100
+          : 0;
     }
   }
 
@@ -179,9 +195,12 @@ export async function GET(request: Request) {
     });
   } catch (error) {
     console.error("❌ Error fetching market data:", error);
-    return new Response(JSON.stringify({ error: "Failed to fetch market data" }), {
-      status: 500,
-      headers: { "content-type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ error: "Failed to fetch market data" }),
+      {
+        status: 500,
+        headers: { "content-type": "application/json" },
+      },
+    );
   }
 }

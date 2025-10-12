@@ -20,5 +20,3 @@ export async function fetchWithTimeout(
     clearTimeout(timeout);
   }
 }
-
-
