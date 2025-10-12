@@ -12,13 +12,15 @@ import {
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white w-full overflow-x-hidden flex flex-col items-center justify-center">
-      <BgGrain/>
+    <div className="min-h-screen w-full overflow-x-hidden flex flex-col items-center justify-center relative">
+      <BgGrain className="fixed inset-0 w-full h-full z-0" />
       {/* Hero Section */}
-      <HeroSection />
+      <div className="relative z-10 w-full">
+        <HeroSection />
+      </div>
 
       {/* Proof of Reserve Section */}
-      <section className="relative py-24 bg-gradient-to-b from-neutral-800 to-emerald-800 overflow-hidden">
+      <section className="relative z-10 py-24 bg-gradient-to-b from-neutral-800 to-emerald-800 overflow-hidden">
         <ProofOfReserveSection />
 
         <ProofOfReserveCards />
@@ -36,10 +38,14 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <FeaturesSection />
+      <div className="relative z-10 w-full">
+        <FeaturesSection />
+      </div>
 
       {/* Animated Footer */}
-      <AnimatedFooterSection />
+      <div className="relative z-10 w-full">
+        <AnimatedFooterSection />
+      </div>
     </div>
   );
 }

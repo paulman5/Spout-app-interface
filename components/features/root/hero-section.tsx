@@ -17,7 +17,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:35px_35px]"></div>
 
       {/* Main content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20 flex flex-col lg:flex-row items-center justify-between min-h-screen">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20 flex flex-col lg:flex-row items-center justify-between">
         {/* Left column - Text content */}
         <div className="w-full lg:w-2/3 lg:pr-12 mb-12 lg:mb-0">
           <div className="max-w-3xl">
@@ -66,7 +66,7 @@ export function HeroSection() {
               alt="Spout Water Tokens"
               width={453}
               height={498}
-              className="w-full h-auto"
+              className="w-full"
               priority
             />
           </div>
@@ -74,10 +74,8 @@ export function HeroSection() {
       </div>
 
       {/* Compatible Networks Section */}
-      <div className="relative z-10 w-full">
-        <div className="max-w-7xl mx-auto">
-          <PartnerTicker />
-        </div>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
+        <PartnerTicker />
       </div>
     </section>
   );

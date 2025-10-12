@@ -31,7 +31,7 @@ export function PartnerTicker() {
   const [offset, setOffset] = useState(0);
   const tickerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const speed = 0.5;
+  const speed = 0.4;
 
   useEffect(() => {
     let frame: number;
@@ -53,7 +53,7 @@ export function PartnerTicker() {
     <div className="w-full rounded-lg border border-blue-200 overflow-hidden">
       <div className="flex items-center">
         {/* Fixed "Compatible With Leading Networks" box */}
-        <div className="bg-white rounded-l-lg px-8 py-6 border-r border-blue-200 flex-shrink-0">
+        <div className="bg-white rounded-l-lg px-8 py-5 border-r border-blue-200 flex-shrink-0">
           <h3 className="text-lg font-noto-sans text-[#334155] font-medium text-center leading-tight">
             Compatible With<br />
             Leading Networks
@@ -81,7 +81,7 @@ export function PartnerTicker() {
                   className="focus:outline-none group"
                   aria-label={partner.alt}
                 >
-                  <div className="bg-white px-20 py-6 border-r border-blue-200 transition-all duration-300 flex items-center justify-center min-w-[120px] hover:bg-blue-50">
+                  <div className="bg-white px-20 py-5 border-r border-blue-200 transition-all duration-300 flex items-center justify-center min-w-[120px] hover:bg-blue-50">
                     <Image
                       src={partner.src}
                       alt={partner.alt}
