@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DiagonalPattern = ({ 
+export const DiagonalPattern = ({ 
   width = '100%', 
   height = 34, 
   color = '#A7C6ED',

@@ -7,6 +7,7 @@ import { useScreenSize } from "@/hooks/use-screen-size";
 import { JoinMailingList } from "./join-mailing-list";
 import { PartnerTicker } from "./partner-ticker";
 import Image from "next/image";
+import { DiagonalPattern } from "@/components/slant-dashes-svg";
 
 export function HeroSection() {
   const screenSize = useScreenSize();
@@ -17,7 +18,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:35px_35px]"></div>
 
       {/* Main content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20 flex flex-col lg:flex-row items-center justify-between">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 pt-20 pb-0 flex flex-col lg:flex-row items-center justify-between">
         {/* Left column - Text content */}
         <div className="w-full lg:w-2/3 lg:pr-12 mb-12 lg:mb-0">
           <div className="max-w-3xl">
@@ -38,7 +39,7 @@ export function HeroSection() {
               <Link href="/app">
                 <Button
                   size="lg"
-                  className="bg-[#004040] hover:bg-[#003030] text-white px-8 py-4 text-lg font-semibold rounded-none shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-[#004040] hover:bg-[#003030] data-[hovered]:bg-[#003030] text-white px-8 py-4 text-lg font-semibold rounded-none shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Launch Platform
                   <ArrowRight className="ml-3 h-5 w-5" />
@@ -59,7 +60,7 @@ export function HeroSection() {
         </div>
 
         {/* Right column - SVG graphic */}
-        <div className="w-full lg:w-1/3 flex items-center justify-center lg:justify-end">
+        <div className="w-full lg:w-1/3 flex items-end justify-center lg:justify-end">
           <div className="w-full max-w-lg">
             <Image
               src="/spout-water-tokens.svg"
@@ -74,8 +75,19 @@ export function HeroSection() {
       </div>
 
       {/* Compatible Networks Section */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-10 mb-6">
         <PartnerTicker />
+      </div>
+
+      {/* Slant Dashes */}
+      <div className="relative z-10 w-full mt-10">
+        <DiagonalPattern 
+          width="100%" 
+          height={34} 
+          color="#A7C6ED" 
+          strokeWidth={2} 
+          spacing={14} 
+        />
       </div>
     </section>
   );
