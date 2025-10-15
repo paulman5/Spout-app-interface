@@ -20,9 +20,9 @@ import {
 import { LogOut } from "lucide-react";
 import { signOut } from "@/lib/supabase/auth";
 const navItems = [
-  // { name: "Markets", link: "/app/markets", soon: true },
-  { name: "Trade", link: "/app/trade" },
-  { name: "Earn", link: "/app/earn", soon: true },
+  { name: "HOME", link: "/" },
+  { name: "ABOUT US", link: "/company" },
+  { name: "EARN", link: "/app/earn", soon: true },
 ];
 
 export default function Navbar() {
@@ -42,35 +42,15 @@ export default function Navbar() {
     <ResizableNavbar>
       <NavBody>
         <NavbarLogo />
-        <NavItems items={navItems} />
-        {/*
-        {!user && (
+        <div className="flex items-center gap-8">
+          <NavItems items={navItems} />
           <Link
-            href="/auth/login"
-            style={{ position: "relative", zIndex: 50 }}
-            className="px-4 py-2 rounded-2xl bg-emerald-600 text-white hover:bg-emerald-700 transition-colors"
+            href="/app"
+            className="px-6 py-2 text-sm bg-[#004040] hover:bg-[#003030] text-white font-semibold transition-colors z-50 relative rounded-md"
           >
-            Login
+            Get Started
           </Link>
-        )}
-        */}
-        {user && (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button className="px-4 py-2 z-50 rounded-2xl bg-emerald-50 text-emerald-700 font-semibold hover:bg-emerald-100 transition-colors focus:outline-none">
-                {displayName}
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-40">
-              <DropdownMenuItem
-                onClick={handleSignOut}
-                className="text-red-600 cursor-pointer"
-              >
-                <LogOut className="mr-2 h-4 w-4" /> Log out
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        )}
+        </div>
       </NavBody>
       <MobileNav>
         <MobileNavHeader>
@@ -82,34 +62,12 @@ export default function Navbar() {
         </MobileNavHeader>
         <MobileNavMenu isOpen={mobileOpen} onClose={() => setMobileOpen(false)}>
           <NavItems items={navItems} onItemClick={() => setMobileOpen(false)} />
-          {/*
-          {!user && (
-            <Link
-              href="/auth/login"
-              style={{ position: "relative", zIndex: 50 }}
-              className="px-4 py-2 rounded-2xl bg-emerald-600 text-white hover:bg-emerald-700 transition-colors"
-            >
-              Login
-            </Link>
-          )}
-          */}
-          {user && (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button className="block w-full px-4 py-2 rounded-2xl bg-emerald-50 text-emerald-700 font-semibold mt-2 text-left hover:bg-emerald-100 transition-colors focus:outline-none">
-                  {displayName}
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-40">
-                <DropdownMenuItem
-                  onClick={handleSignOut}
-                  className="text-red-600 cursor-pointer"
-                >
-                  <LogOut className="mr-2 h-4 w-4" /> Log out
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          )}
+          <Link
+            href="/app"
+            className="px-6 py-2 bg-[#004040] hover:bg-[#003030] text-white font-semibold transition-colors block text-center mt-4 rounded-md"
+          >
+            Get Started
+          </Link>
         </MobileNavMenu>
       </MobileNav>
     </ResizableNavbar>

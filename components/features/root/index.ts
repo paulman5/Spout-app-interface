@@ -1,3 +1,4 @@
+export { AnnouncementBar } from "./announcement-bar";
 export { HeroSection } from "./hero-section";
 export { FeaturesSection } from "./features-section";
 export { ProofOfReserveSection } from "./proof-of-reserve-section";

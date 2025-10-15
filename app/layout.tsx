@@ -7,6 +7,7 @@ import { Providers } from "@/components/providers";
 import { RumInit } from "@/aws/rum-init";
 import { cn } from "@/lib/utils";
 import { ConditionalNavbar } from "@/components/conditionalNavbar";
+import { AnnouncementBar } from "@/components/features/root";
 import { Analytics } from "@vercel/analytics/next";
 
 const publicSans = Public_Sans({
@@ -87,6 +88,7 @@ export default async function RootLayout({
       >
         <RumInit />
         <Providers>
+          <AnnouncementBar />
           <ConditionalNavbar />
           <main className="flex-1">{children}</main>
         </Providers>

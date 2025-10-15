@@ -72,7 +72,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
     <motion.div
       ref={ref}
       // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
-      className={cn("fixed inset-x-0 top-0 z-40 w-full", className)}
+      className={cn("relative inset-x-0 z-40 w-full bg-white", className)}
     >
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
@@ -90,12 +90,10 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   return (
     <motion.div
       animate={{
-        backdropFilter: visible ? "blur(10px)" : "none",
-        boxShadow: visible
-          ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
-          : "none",
-        width: visible ? "40%" : "100%",
-        y: visible ? 20 : 0,
+        backdropFilter: "none",
+        boxShadow: "none",
+        width: "100%",
+        y: 0,
       }}
       transition={{
         type: "spring",
@@ -106,8 +104,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         minWidth: "800px",
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-2xl bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
-        visible && "bg-white/80 dark:bg-neutral-950/80",
+        "relative z-[60] mx-auto hidden w-full max-w-[1800px] flex-row items-center justify-between self-start rounded-2xl bg-white px-16 py-4 lg:flex dark:bg-white",
         className,
       )}
     >
@@ -123,7 +120,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
+        "hidden flex-row items-center space-x-2 text-base font-normal text-gray-700 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-8",
         className,
       )}
     >
@@ -131,11 +128,11 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <div key={item.name} className="flex items-center">
           {item.soon ? (
             <>
-              <span className="text-gray-400 flex items-center gap-2">
+              <span className="text-gray-700 flex items-center gap-2">
                 {item.icon}
                 {item.name}
               </span>
-              <span className="ml-2 px-2 py-1 text-xs bg-gray-100 rounded">
+              <span className="ml-2 px-2 py-1 text-xs text-blue-600 bg-blue-50 rounded">
                 Soon
               </span>
             </>
@@ -143,15 +140,9 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             <Link
               onMouseEnter={() => setHovered(idx)}
               onClick={onItemClick}
-              className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
+              className="relative px-4 py-2 text-gray-700 hover:text-gray-900 dark:text-neutral-300"
               href={item.link}
             >
-              {hovered === idx && (
-                <motion.div
-                  layoutId="hovered"
-                  className="absolute inset-0 h-full w-full rounded-xl bg-emerald-600/20 dark:bg-neutral-800"
-                />
-              )}
               <span className="relative z-20">{item.name}</span>
             </Link>
           )}
