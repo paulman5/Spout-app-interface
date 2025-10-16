@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { DiagonalPattern } from "@/components/slant-dashes-svg";
 
 export function FAQSection() {
@@ -18,7 +17,7 @@ export function FAQSection() {
     },
     {
       question: "How can investors generate yield through Spout's platform?",
-      answer: "Investors generate yield by holding Spout tokens, which accrue interest from the underlying bond ETFs. The yield is distributed automatically to token holders, providing a consistent 5-8% return while maintaining full liquidity and DeFi composability.",
+      answer: "Investors generate yield by holding Spout tokens, which accrue yield on price movement or dividends when attached to the underlying asset. The yield is distributed automatically to token holders. Spout tokens will be eligible to serve as collateral in the Spout lending market to efficiently borrow against your assets.",
     },
   ];
 
@@ -83,19 +82,6 @@ export function FAQSection() {
                 )}
               </div>
             ))}
-
-            {/* Read More Button */}
-            <div className="pt-4">
-              <Link
-                href="/faq"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-300 rounded-lg text-[#004040] font-noto-sans font-medium hover:bg-gray-50 transition-colors"
-              >
-                Read More
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
           </div>
         </div>
       </div>
