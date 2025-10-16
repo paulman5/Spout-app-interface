@@ -173,7 +173,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a
-                  href="https://t.me/+f1rc4o4A3Yw0MmMx"
+                  href="https://t.me/+BCqhsA4Nmv0wZDU5"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-base"
@@ -204,7 +204,6 @@ export const Footer: React.FC<FooterProps> = ({
 // Default footer component with Spout Finance links
 const DefaultFooter = () => {
   const leftLinks = [
-    { href: "/app/portfolio", label: "Portfolio" },
     { href: "/app/trade", label: "Trading" },
   ];
 
@@ -214,7 +213,6 @@ const DefaultFooter = () => {
       href: "https://drive.google.com/file/d/1fklbqmZhgxzIzXN0aEjsf2NFat2QdpFp/view",
       label: "Whitepaper",
     },
-    { href: "/company#brand", label: "Brand Assets" },
   ];
 
   return (
