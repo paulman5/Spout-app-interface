@@ -64,7 +64,7 @@ export function CTASection() {
             {/* Right Image */}
             <div className="relative">
               <Image
-                src="/landingpage/nyse-building.jpg"
+                src="/landingpage/spout-wallstreet.png"
                 alt="Stock Exchange Building"
                 width={600}
                 height={400}
