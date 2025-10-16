@@ -81,7 +81,7 @@ export function UnlockingFinance() {
               DeFi expands access to traditional assets by enabling security-backed lending and diversified exposure, unlocking opportunities while bridging traditional and decentralized markets.
             </p>
 
-            <ul className="space-y-3">
+            <ul className="space-y-3 mb-6 md:mb-0">
               <li className="flex items-center gap-2 text-sm font-noto-sans text-[#475569]">
                 <div className="w-2 h-2 rounded-full bg-blue-400"></div>
                 Security-backed lending
@@ -97,7 +97,7 @@ export function UnlockingFinance() {
             </ul>
 
             {/* Benefits icon */}
-            <div className="absolute bottom-6 right-6">
+            <div className="flex justify-center md:absolute md:bottom-6 md:right-6">
               <Image
                 src="/landingpage/spout-benefits.svg"
                 alt="Benefits"
@@ -127,7 +127,7 @@ export function UnlockingFinance() {
               DeFi combines strong safeguards with full transparency, ensuring all assets are protected and fully verifiable while building lasting trust and unlocking new opportunities in finance.
             </p>
 
-            <ul className="space-y-3">
+            <ul className="space-y-3 mb-6 md:mb-0">
               <li className="flex items-center gap-2 text-sm font-noto-sans text-[#475569]">
                 <div className="w-2 h-2 rounded-full bg-blue-400"></div>
                 Institutional-grade asset protection
@@ -143,7 +143,7 @@ export function UnlockingFinance() {
             </ul>
 
             {/* Lock icon */}
-            <div className="absolute bottom-3 right-6">
+            <div className="flex justify-center md:absolute md:bottom-3 md:right-6">
               <Image
                 src="/landingpage/spout-lock-white.svg"
                 alt="Lock"

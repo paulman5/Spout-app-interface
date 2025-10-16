@@ -47,15 +47,10 @@ export function CTASection() {
               <p className="text-lg font-noto-sans text-[#475569] mb-8 leading-relaxed">
                 Join thousands of users who are already earning consistent returns from investment-grade corporate bonds on the blockchain.
               </p>
-              <div className="flex gap-4">
+              <div>
                 <Link href="/app">
                   <button className="px-8 py-3 bg-[#004040] text-white font-noto-sans font-medium rounded-lg hover:bg-[#003030] transition-colors">
                     Get Started
-                  </button>
-                </Link>
-                <Link href="/company">
-                  <button className="px-8 py-3 bg-white border border-gray-300 text-[#004040] font-noto-sans font-medium rounded-lg hover:bg-gray-50 transition-colors">
-                    Contact Sales
                   </button>
                 </Link>
               </div>
