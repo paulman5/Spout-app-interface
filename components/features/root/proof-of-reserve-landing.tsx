@@ -34,14 +34,14 @@ export function ProofOfReserveLanding() {
         <div className="relative bg-white border border-gray-300 rounded-lg shadow-sm px-4 py-6 lg:py-3 max-w-[1100px] mx-auto">
           {/* Top-left diamond */}
           <div className="hidden lg:block absolute -left-4 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-400">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
 
           {/* Top-right diamond */}
           <div className="hidden lg:block absolute -right-4 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-400">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
@@ -57,7 +57,7 @@ export function ProofOfReserveLanding() {
             />
           </div>
           <div className="hidden lg:block absolute -left-4 -bottom-4 z-30">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-400">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
@@ -73,7 +73,7 @@ export function ProofOfReserveLanding() {
             />
           </div>
           <div className="hidden lg:block absolute -right-4 -bottom-4 z-30">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-400">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>

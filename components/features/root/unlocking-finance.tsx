@@ -26,35 +26,35 @@ export function UnlockingFinance() {
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-0 mb-12">
           {/* Top-left diamond */}
           <div className="hidden lg:block absolute -left-4 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-400">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
 
           {/* Top-middle diamond */}
           <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-400">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
 
           {/* Top-right diamond */}
           <div className="hidden lg:block absolute -right-4 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-400">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
 
           {/* Bottom-left diamond */}
           <div className="hidden lg:block absolute -left-4 -bottom-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-400">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
 
           {/* Bottom-middle diamond */}
           <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 -bottom-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-400">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>

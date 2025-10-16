@@ -163,22 +163,22 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a
-                  href="https://x.com/0xspout"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-base"
-                >
-                  X
-                </a>
-              </li>
-              <li>
-                <a
                   href="https://t.me/+BCqhsA4Nmv0wZDU5"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-base"
                 >
                   Telegram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://x.com/0xspout"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-base"
+                >
+                  X
                 </a>
               </li>
             </ul>
