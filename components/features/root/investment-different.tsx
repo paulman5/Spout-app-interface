@@ -121,7 +121,7 @@ export function InvestmentDifferent() {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className={`bg-white border border-gray-300 p-6 rounded-lg lg:rounded-none ${
+              className={`bg-white border border-gray-300 p-6 rounded-lg lg:rounded-none flex flex-col ${
                 index === 0 ? 'lg:rounded-l-lg' : 
                 index === features.length - 1 ? 'lg:rounded-r-lg' : 
                 ''
@@ -144,12 +144,12 @@ export function InvestmentDifferent() {
               </div>
 
               {/* Description */}
-              <p className="text-sm font-noto-sans font-normal text-[#475569] mb-4 leading-relaxed">
+              <p className="text-sm font-noto-sans font-normal text-[#475569] mb-4 leading-relaxed flex-grow">
                 {feature.description}
               </p>
 
               {/* Badges */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mt-auto">
                 {feature.badges.map((badge, badgeIndex) => (
                   <span
                     key={badgeIndex}

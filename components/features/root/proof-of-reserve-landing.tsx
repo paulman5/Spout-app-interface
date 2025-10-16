@@ -7,7 +7,7 @@ export function ProofOfReserveLanding() {
   return (
     <section className="w-full bg-gray-50 py-20 relative">
       {/* Section content */}
-      <div className="w-full max-w-[1800px] mx-auto px-16">
+      <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 lg:px-16">
         {/* Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl font-lora font-normal text-[#004040] mb-6">
@@ -31,7 +31,7 @@ export function ProofOfReserveLanding() {
         </div>
 
         {/* Statistics Section */}
-        <div className="relative bg-white border border-gray-300 rounded-lg shadow-sm px-4 py-3 max-w-[1100px] mx-auto">
+        <div className="relative bg-white border border-gray-300 rounded-lg shadow-sm px-4 py-6 lg:py-3 max-w-[1100px] mx-auto">
           {/* Top-left diamond */}
           <div className="hidden lg:block absolute -left-4 -top-4 z-20">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-400">
@@ -78,10 +78,10 @@ export function ProofOfReserveLanding() {
             </svg>
           </div>
 
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-4">
             {/* Assets On-Chain */}
-            <div className="flex items-center gap-3 border border-gray-200 rounded-lg px-10 py-4">
-              <div className="flex items-center justify-center w-10 h-10">
+            <div className="flex items-center gap-3 border border-gray-200 rounded-lg px-6 lg:px-10 py-4 w-full lg:w-auto">
+              <div className="flex items-center justify-center w-10 h-10 flex-shrink-0">
                 <Image
                   src="/landingpage/spout-bank.svg"
                   alt="Bank"
@@ -92,13 +92,13 @@ export function ProofOfReserveLanding() {
               </div>
               <div>
                 <div className="text-xl font-bold text-[#004040]">$200k</div>
-                <div className="text-xs text-[#475569]">Assets On-Chain</div>
+                <div className="text-xs text-[#475569] whitespace-nowrap">Assets On-Chain</div>
               </div>
             </div>
 
             {/* Investments Tokenized */}
-            <div className="flex items-center gap-3 border border-gray-200 rounded-lg px-10 py-4">
-              <div className="flex items-center justify-center w-10 h-10">
+            <div className="flex items-center gap-3 border border-gray-200 rounded-lg px-6 lg:px-10 py-4 w-full lg:w-auto">
+              <div className="flex items-center justify-center w-10 h-10 flex-shrink-0">
                 <Image
                   src="/landingpage/spout-category.svg"
                   alt="Category"
@@ -109,13 +109,13 @@ export function ProofOfReserveLanding() {
               </div>
               <div>
                 <div className="text-xl font-bold text-[#004040]">1,124</div>
-                <div className="text-xs text-[#475569]">Investments Tokenized</div>
+                <div className="text-xs text-[#475569] whitespace-nowrap">Investments Tokenized</div>
               </div>
             </div>
 
             {/* Proof-of-Reserve Verified */}
-            <div className="flex items-center gap-3 border border-gray-200 rounded-lg px-10 py-4">
-              <div className="flex items-center justify-center w-10 h-10">
+            <div className="flex items-center gap-3 border border-gray-200 rounded-lg px-6 lg:px-10 py-4 w-full lg:w-auto">
+              <div className="flex items-center justify-center w-10 h-10 flex-shrink-0">
                 <Image
                   src="/landingpage/spout-shield-tick.svg"
                   alt="Shield"
@@ -126,7 +126,7 @@ export function ProofOfReserveLanding() {
               </div>
               <div>
                 <div className="text-xl font-bold text-[#004040]">100%</div>
-                <div className="text-xs text-[#475569]">Proof-of-Reserve Verified</div>
+                <div className="text-xs text-[#475569] whitespace-nowrap">Proof-of-Reserve Verified</div>
               </div>
             </div>
           </div>
