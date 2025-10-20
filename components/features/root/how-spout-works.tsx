@@ -2,6 +2,12 @@
 
 import Image from "next/image";
 import { DiagonalPattern } from "@/components/slant-dashes-svg";
+import BgGrain from "@/components/bg-grain-svg";
+import spoutKyc from "@/components/svg-assets/landingpage/spout-kyc.svg";
+import spoutEquities from "@/components/svg-assets/landingpage/spout-equities.svg";
+import spoutMoney from "@/components/svg-assets/landingpage/spout-money.svg";
+import spoutDefi from "@/components/svg-assets/landingpage/spout-defi.svg";
+import spoutPerformance from "@/components/svg-assets/landingpage/spout-performance.svg";
 
 const steps = [
   {
@@ -9,7 +15,7 @@ const steps = [
     title: "Complete KYC",
     description:
       'Connect your wallet and complete KYC verification to access investment-grade assets. KYC ensures that we are completely compliant with every jurisdiction"',
-    image: "/landingpage/spout-kyc.svg",
+    image: spoutKyc,
     imageAlt: "KYC Verification",
   },
   {
@@ -17,7 +23,7 @@ const steps = [
     title: "Access Public Equities",
     description:
       "Connect your wallet and complete KYC verification to access investment-grade assets. Assets include highly trading equities, including Tesla, Microsoft, Coinbase, etc.",
-    image: "/landingpage/spout-equities.svg",
+    image: spoutEquities,
     imageAlt: "Public Equities",
   },
   {
@@ -25,7 +31,7 @@ const steps = [
     title: "Earn Stable Yields",
     description:
       "Receive consistent returns from underlying bond interest payments. Dividends are automatically reinvested into the respective assets.",
-    image: "/landingpage/spout-money.svg",
+    image: spoutMoney,
     imageAlt: "Stable Yields",
   },
   {
@@ -33,7 +39,7 @@ const steps = [
     title: "Utilize in DeFi with our Stablecoin",
     description:
       "Use your tokenized assets in DeFi protocols for lending, borrowing, and yield farming. Use your assets as collateral to mint our ERC20 stablecoin that can be used seamlessly across DeFi.",
-    image: "/landingpage/spout-defi.svg",
+    image: spoutDefi,
     imageAlt: "DeFi Integration",
   },
   {
@@ -41,19 +47,21 @@ const steps = [
     title: "Track Performance",
     description:
       "Monitor your portfolio with real-time analytics and transparent reporting. Trade assets with a UI similar to your traditional brokerage.",
-    image: "/landingpage/spout-performance.svg",
+    image: spoutPerformance,
     imageAlt: "Performance Tracking",
   },
 ];
 
 export function HowSpoutWorks() {
   return (
-    <section className="w-full bg-gray-50 py-20">
+    <section className="w-full py-20 relative">
+      {/* Background grain for this section */}
+      <BgGrain className="absolute inset-0 w-full h-full z-0" />
       <div className="w-full max-w-6xl mx-auto px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-lora font-normal text-[#004040] mb-6">
-            How <span className="font-bold">Spout</span> works
+            How <span className="font-medium">Spout</span> works
           </h2>
           <p className="text-lg lg:text-xl font-noto-sans text-[#334155] max-w-4xl mx-auto">
             Spout bridges the gap between traditional finance and DeFi by tokenizing investment-grade corporate
@@ -65,26 +73,26 @@ export function HowSpoutWorks() {
         <div className="relative space-y-0">
           {/* Decorative diamonds at corners of entire section */}
           {/* Top-left diamond */}
-          <div className="hidden lg:block absolute -left-4 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute -left-3 -top-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
           {/* Top-right diamond */}
-          <div className="hidden lg:block absolute -right-4 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute -right-3 -top-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
           {/* Bottom-left diamond */}
-          <div className="hidden lg:block absolute -left-4 -bottom-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute -left-3 -bottom-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
           {/* Bottom-right diamond */}
-          <div className="hidden lg:block absolute -right-4 -bottom-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute -right-3 -bottom-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
@@ -92,7 +100,7 @@ export function HowSpoutWorks() {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch border border-gray-300 rounded-lg overflow-hidden mb-6 last:mb-0"
+              className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch border border-gray-300 rounded-none overflow-hidden mb-6 last:mb-0"
             >
               {/* Content - alternates left/right */}
               <div className={`flex items-center border-gray-300 py-6 px-6 ${index % 2 === 0 ? "lg:order-1 lg:border-r" : "lg:order-2 lg:border-l"}`}>

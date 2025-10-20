@@ -1,4 +1,3 @@
-import BgGrain from "@/components/bg-grain-svg";
 import {
   AnnouncementBar,
   HeroSection,
@@ -16,7 +15,6 @@ export default function HomePage() {
   return (
     <>
       <div className="min-h-screen w-full overflow-x-hidden flex flex-col items-center justify-center relative">
-        <BgGrain className="fixed inset-0 w-full h-full z-0" />
       {/* Hero Section */}
       <div className="relative z-10 w-full">
         <HeroSection />

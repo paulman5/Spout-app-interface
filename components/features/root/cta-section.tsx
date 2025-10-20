@@ -3,37 +3,41 @@
 import Image from "next/image";
 import Link from "next/link";
 import { DiagonalPattern } from "@/components/slant-dashes-svg";
+import BgGrain from "@/components/bg-grain-svg";
+import spoutWallstreet from "@/components/svg-assets/landingpage/spout-wallstreet.png";
 
 export function CTASection() {
   return (
-    <section className="w-full bg-gray-50 py-20 relative">
+    <section className="w-full py-20 relative">
+      {/* Background grain for this section */}
+      <BgGrain className="absolute inset-0 w-full h-full z-0" />
       {/* Section content */}
       <div className="w-full max-w-[1800px] mx-auto px-16">
-        <div className="relative bg-white border border-gray-300 rounded-lg shadow-sm p-12">
+        <div className="relative border border-gray-300 rounded-lg shadow-sm p-12">
           {/* Top-left diamond */}
-          <div className="hidden lg:block absolute -left-4 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute -left-3 -top-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
 
           {/* Top-right diamond */}
-          <div className="hidden lg:block absolute -right-4 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute -right-3 -top-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
 
           {/* Bottom-left diamond */}
-          <div className="hidden lg:block absolute -left-4 -bottom-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute -left-3 -bottom-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
 
           {/* Bottom-right diamond */}
-          <div className="hidden lg:block absolute -right-4 -bottom-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute -right-3 -bottom-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
@@ -59,7 +63,7 @@ export function CTASection() {
             {/* Right Image */}
             <div className="relative">
               <Image
-                src="/landingpage/spout-wallstreet.png"
+                src={spoutWallstreet}
                 alt="Stock Exchange Building"
                 width={600}
                 height={400}

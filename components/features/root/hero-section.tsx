@@ -8,12 +8,16 @@ import { JoinMailingList } from "./join-mailing-list";
 import { PartnerTicker } from "./partner-ticker";
 import Image from "next/image";
 import { DiagonalPattern } from "@/components/slant-dashes-svg";
+import spoutWaterTokens from "@/components/svg-assets/landingpage/spout-water-tokens.svg";
+import BgGrain from "@/components/bg-grain-svg";
 
 export function HeroSection() {
   const screenSize = useScreenSize();
 
   return (
-    <section className="w-full flex flex-col relative overflow-hidden bg-gray-50">
+    <section className="w-full flex flex-col relative overflow-hidden">
+      {/* Background grain for this section */}
+      <BgGrain className="absolute inset-0 w-full h-full z-0" />
       {/* Hero content wrapper with grid background */}
       <div className="relative w-full">
         {/* Background grid pattern - only for hero area */}
@@ -68,7 +72,7 @@ export function HeroSection() {
         <div className="w-full lg:w-[45%] flex items-start justify-center lg:justify-end -mt-8">
           <div className="w-full max-w-md lg:max-w-xl">
             <Image
-              src="/landingpage/spout-water-tokens.svg"
+              src={spoutWaterTokens}
               alt="Spout Water Tokens"
               width={550}
               height={550}

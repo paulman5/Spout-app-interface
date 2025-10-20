@@ -7,7 +7,7 @@ import { useScreenSize } from "@/hooks/use-screen-size";
 export function FeaturesSection() {
   const screenSize = useScreenSize();
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
+    <section className="relative py-24 overflow-hidden">
       <PixelTrail
         fadeDuration={1200}
         delay={300}

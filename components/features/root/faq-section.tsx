@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { DiagonalPattern } from "@/components/slant-dashes-svg";
+import BgGrain from "@/components/bg-grain-svg";
 
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -26,7 +27,9 @@ export function FAQSection() {
   };
 
   return (
-    <section className="w-full bg-gray-50 py-20 relative">
+    <section className="w-full py-20 relative">
+      {/* Background grain for this section */}
+      <BgGrain className="absolute inset-0 w-full h-full z-0" />
       {/* Section content */}
       <div className="w-full max-w-7xl mx-auto px-8 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -48,7 +51,7 @@ export function FAQSection() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-300 rounded-lg overflow-hidden"
+                className="border border-gray-300 rounded-lg overflow-hidden"
               >
                 <button
                   onClick={() => toggleFAQ(index)}

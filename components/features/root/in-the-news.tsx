@@ -3,23 +3,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import { DiagonalPattern } from "@/components/slant-dashes-svg";
+import BgGrain from "@/components/bg-grain-svg";
+import spoutAp from "@/components/svg-assets/landingpage/spout-ap.webp";
+import spoutBusinessInsider from "@/components/svg-assets/landingpage/spout-business-insder.svg";
+import marketwatchSpout from "@/components/svg-assets/landingpage/marketwatch-spout.webp";
+import spoutBook from "@/components/svg-assets/landingpage/spout-book.svg";
 
 export function InTheNews() {
   const newsItems = [
     {
-      logo: "/landingpage/spout-ap.webp",
+      logo: spoutAp,
       publication: "AP News",
       date: "JAN 15, 2025",
       url: "https://apnews.com/press-release/globenewswire-mobile/onepiece-labs-solana-accelerator-officially-launches-f2e8e0a2478df30533933fdfe8f07a5e",
     },
     {
-      logo: "/landingpage/spout-business-insder.svg",
+      logo: spoutBusinessInsider,
       publication: "Business Insider",
       date: "JAN 15, 2025",
       url: "https://markets.businessinsider.com/news/stocks/onepiece-labs-solana-accelerator-officially-launches-1035128439",
     },
     {
-      logo: "/landingpage/marketwatch-spout.webp",
+      logo: marketwatchSpout,
       publication: "MarketWatch",
       date: "JAN 15, 2025",
       url: "https://www.marketwatch.com/press-release/onepiece-labs-solana-accelerator-officially-launches-7b06ee13?mod=search_headline",
@@ -27,13 +32,15 @@ export function InTheNews() {
   ];
 
   return (
-    <section className="w-full bg-gray-50 py-20 relative">
+    <section className="w-full py-20 relative">
+      {/* Background grain for this section */}
+      <BgGrain className="absolute inset-0 w-full h-full z-0" />
       {/* Section content */}
       <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 lg:px-16">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-lora font-normal text-[#004040] mb-6">
-            In the <span className="font-bold">News</span>
+            In the <span className="font-medium">News</span>
           </h2>
           <p className="text-lg font-noto-sans font-normal text-[#475569] max-w-3xl mx-auto leading-relaxed">
             Financial media outlets are highlighting our approach to secure, regulated<br />
@@ -44,31 +51,31 @@ export function InTheNews() {
         {/* News Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
           {newsItems.map((item, index) => (
-            <div key={index} className="relative bg-white border border-gray-300 rounded-lg">
+            <div key={index} className="relative border border-gray-300 rounded-lg">
               {/* Top-left diamond */}
-              <div className="absolute -left-4 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+              <div className="absolute -left-3 -top-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
                   <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
                 </svg>
               </div>
 
               {/* Top-right diamond */}
-              <div className="absolute -right-4 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+              <div className="absolute -right-3 -top-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
                   <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
                 </svg>
               </div>
 
               {/* Bottom-left diamond */}
-              <div className="absolute -left-4 -bottom-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+              <div className="absolute -left-3 -bottom-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
                   <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
                 </svg>
               </div>
 
               {/* Bottom-right diamond */}
-              <div className="absolute -right-4 -bottom-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+              <div className="absolute -right-3 -bottom-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
                   <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
                 </svg>
               </div>
@@ -76,7 +83,7 @@ export function InTheNews() {
               {/* Card Content with rounded corners */}
               <div className="overflow-hidden rounded-lg">
                 {/* Logo Area */}
-                <div className="h-48 flex items-center justify-center p-8 bg-white">
+                <div className="h-48 flex items-center justify-center p-8">
                   <Image
                     src={item.logo}
                     alt={item.publication}
@@ -95,7 +102,7 @@ export function InTheNews() {
                   className="flex items-center gap-2 px-3 py-2 md:px-4 bg-blue-50 border border-blue-200 rounded text-[#004040] font-noto-sans text-sm md:text-base font-medium hover:bg-blue-100 transition-colors flex-shrink-0"
                 >
                   <Image
-                    src="/landingpage/spout-book.svg"
+                    src={spoutBook}
                     alt="Article"
                     width={20}
                     height={20}

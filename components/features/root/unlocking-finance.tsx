@@ -3,10 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { DiagonalPattern } from "@/components/slant-dashes-svg";
+import BgGrain from "@/components/bg-grain-svg";
+import spoutBenefits from "@/components/svg-assets/landingpage/spout-benefits.svg";
+import spoutLockWhite from "@/components/svg-assets/landingpage/spout-lock-white.svg";
 
 export function UnlockingFinance() {
   return (
-    <section className="w-full bg-gray-50 py-20 relative">
+    <section className="w-full py-20 relative">
+      {/* Background grain for this section */}
+      <BgGrain className="absolute inset-0 w-full h-full z-0" />
       {/* Section content */}
       <div className="w-full max-w-6xl mx-auto px-8">
         {/* Header */}
@@ -25,49 +30,49 @@ export function UnlockingFinance() {
         {/* Cards Section */}
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-0 mb-12">
           {/* Top-left diamond */}
-          <div className="hidden lg:block absolute -left-4 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute -left-3 -top-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
 
           {/* Top-middle diamond */}
-          <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 -top-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
 
           {/* Top-right diamond */}
-          <div className="hidden lg:block absolute -right-4 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute -right-3 -top-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
 
           {/* Bottom-left diamond */}
-          <div className="hidden lg:block absolute -left-4 -bottom-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute -left-3 -bottom-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
 
           {/* Bottom-middle diamond */}
-          <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 -bottom-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 -bottom-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
 
           {/* Bottom-right diamond */}
-          <div className="hidden lg:block absolute -right-4 -bottom-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-400">
+          <div className="hidden lg:block absolute -right-3 -bottom-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-400">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
 
           {/* DeFi Integration Benefits Card */}
-          <div className="bg-white border border-gray-300 rounded-lg p-8 relative">
+          <div className="border border-gray-300 rounded-lg p-8 relative">
             <div className="flex items-center gap-3 mb-4">
               <svg className="w-6 h-6 text-[#004040]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -99,7 +104,7 @@ export function UnlockingFinance() {
             {/* Benefits icon */}
             <div className="flex justify-center md:absolute md:bottom-6 md:right-6">
               <Image
-                src="/landingpage/spout-benefits.svg"
+                src={spoutBenefits}
                 alt="Benefits"
                 width={180}
                 height={180}
@@ -109,11 +114,11 @@ export function UnlockingFinance() {
           </div>
 
           {/* DeFi Security & Transparency Card */}
-          <div className="bg-white border border-gray-300 rounded-lg p-8 relative">
+          <div className="border border-gray-300 rounded-lg p-8 relative">
             <div className="flex items-center gap-3 mb-4">
               <Image
-  src="/landingpage/spout-lock-complete-new.svg"
-              alt="Lock"
+                src={spoutLockWhite}
+                alt="Lock"
                 width={24}
                 height={24}
                 className="w-6 h-6"
@@ -145,7 +150,7 @@ export function UnlockingFinance() {
             {/* Lock icon */}
             <div className="flex justify-center md:absolute md:bottom-3 md:right-6">
               <Image
-                src="/landingpage/spout-lock-white.svg"
+                src={spoutLockWhite}
                 alt="Lock"
                 width={160}
                 height={160}

@@ -2,16 +2,25 @@
 
 import Image from "next/image";
 import { DiagonalPattern } from "@/components/slant-dashes-svg";
+import BgGrain from "@/components/bg-grain-svg";
+import spoutReserve from "@/components/svg-assets/landingpage/spout-reserve.svg";
+import spoutLock from "@/components/svg-assets/landingpage/spout-lock.svg";
+import spoutCoins from "@/components/svg-assets/landingpage/spout-coins.svg";
+import spoutBank from "@/components/svg-assets/landingpage/spout-bank.svg";
+import spoutCategory from "@/components/svg-assets/landingpage/spout-category.svg";
+import spoutShieldTick from "@/components/svg-assets/landingpage/spout-shield-tick.svg";
 
 export function ProofOfReserveLanding() {
   return (
-    <section className="w-full bg-gray-50 py-20 relative">
+    <section className="w-full py-20 relative">
+      {/* Background grain for this section */}
+      <BgGrain className="absolute inset-0 w-full h-full z-0" />
       {/* Section content */}
       <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 lg:px-16">
         {/* Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl font-lora font-normal text-[#004040] mb-6">
-            <span className="font-bold">Proof</span> of Reserve
+            <span className="font-medium">Proof</span> of Reserve
           </h2>
           <p className="text-lg font-noto-sans font-normal text-[#475569] max-w-3xl mx-auto leading-relaxed">
             Every token is fully backed 1:1 by investment-grade bond ETFs, held by
@@ -22,7 +31,7 @@ export function ProofOfReserveLanding() {
         {/* Vault Image with Company Logos */}
         <div className="flex justify-center items-center mb-20">
           <Image
-            src="/landingpage/spout-reserve.svg"
+            src={spoutReserve}
             alt="Proof of Reserve Vault"
             width={900}
             height={600}
@@ -31,17 +40,17 @@ export function ProofOfReserveLanding() {
         </div>
 
         {/* Statistics Section */}
-        <div className="relative bg-white border border-gray-300 rounded-lg shadow-sm px-4 py-6 lg:py-3 max-w-[1100px] mx-auto">
+        <div className="relative  border border-gray-300 rounded-lg shadow-sm px-4 py-6 lg:py-3 max-w-[1100px] mx-auto">
           {/* Top-left diamond */}
-          <div className="hidden lg:block absolute -left-4 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute -left-3 -top-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
 
           {/* Top-right diamond */}
-          <div className="hidden lg:block absolute -right-4 -top-4 z-20">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute -right-3 -top-3 z-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
@@ -49,15 +58,15 @@ export function ProofOfReserveLanding() {
           {/* Bottom-left lock and diamond */}
           <div className="hidden lg:block absolute left-0 bottom-0 z-20">
             <Image
-              src="/landingpage/spout-lock.svg"
+              src={spoutLock}
               alt="Lock"
               width={40}
               height={40}
               className="w-10 h-10"
             />
           </div>
-          <div className="hidden lg:block absolute -left-4 -bottom-4 z-30">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute -left-3 -bottom-3 z-30">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
@@ -65,15 +74,15 @@ export function ProofOfReserveLanding() {
           {/* Bottom-right coins and diamond */}
           <div className="hidden lg:block absolute right-0 bottom-0 z-20">
             <Image
-              src="/landingpage/spout-coins.svg"
+              src={spoutCoins}
               alt="Coins"
               width={40}
               height={40}
               className="w-10 h-10"
             />
           </div>
-          <div className="hidden lg:block absolute -right-4 -bottom-4 z-30">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-blue-300">
+          <div className="hidden lg:block absolute -right-3 -bottom-3 z-30">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
               <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
             </svg>
           </div>
@@ -83,7 +92,7 @@ export function ProofOfReserveLanding() {
             <div className="flex items-center gap-3 border border-gray-200 rounded-lg px-6 lg:px-10 py-4 w-full lg:w-auto">
               <div className="flex items-center justify-center w-10 h-10 flex-shrink-0">
                 <Image
-                  src="/landingpage/spout-bank.svg"
+                  src={spoutBank}
                   alt="Bank"
                   width={40}
                   height={40}
@@ -100,7 +109,7 @@ export function ProofOfReserveLanding() {
             <div className="flex items-center gap-3 border border-gray-200 rounded-lg px-6 lg:px-10 py-4 w-full lg:w-auto">
               <div className="flex items-center justify-center w-10 h-10 flex-shrink-0">
                 <Image
-                  src="/landingpage/spout-category.svg"
+                  src={spoutCategory}
                   alt="Category"
                   width={40}
                   height={40}
@@ -117,7 +126,7 @@ export function ProofOfReserveLanding() {
             <div className="flex items-center gap-3 border border-gray-200 rounded-lg px-6 lg:px-10 py-4 w-full lg:w-auto">
               <div className="flex items-center justify-center w-10 h-10 flex-shrink-0">
                 <Image
-                  src="/landingpage/spout-shield-tick.svg"
+                  src={spoutShieldTick}
                   alt="Shield"
                   width={40}
                   height={40}
