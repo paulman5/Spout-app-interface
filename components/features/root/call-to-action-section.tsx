@@ -10,7 +10,7 @@ export function CallToActionSection() {
           <Button
             variant="outline"
             size="lg"
-            className="border-2 border-slate-300 hover:border-emerald-600 text-slate-700 hover:text-emerald-600 px-8 py-3 rounded-xl"
+            className="border-2 bg-white border-slate-300 hover:border-emerald-600 text-slate-700 hover:text-emerald-600 px-8 py-3 rounded-xl"
           >
             View Reserve Details
             <ArrowRight className="ml-2 h-5 w-5" />

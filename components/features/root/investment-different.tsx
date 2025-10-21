@@ -128,7 +128,7 @@ export function InvestmentDifferent() {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className={`border border-gray-300 p-6 rounded-none lg:rounded-none flex flex-col ${
+              className={`border bg-white border-gray-300 p-6 rounded-none lg:rounded-none flex flex-col ${
                 index === 0 ? 'lg:rounded-l-lg' : 
                 index === features.length - 1 ? 'lg:rounded-r-lg' : 
                 ''

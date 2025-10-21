@@ -164,9 +164,10 @@ export function UnlockingFinance() {
         <div className="flex justify-start">
           <Link
             href="/app/proof-of-reserve"
-            className="inline-flex items-center gap-2 text-[#004040] font-semibold text-lg hover:text-[#003030] transition-colors"
+            className="inline-flex bg-white p-3 border rounded-md border-gray-300 items-center gap-2 text-[#004040] font-semibold text-base hover:text-[#003030] transition-colors"
           >
             View Reserve Details
+            {/* make it use react icons */}
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

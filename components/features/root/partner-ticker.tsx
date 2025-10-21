@@ -6,24 +6,34 @@ import Image from "next/image";
 
 const partners = [
   {
-    src: "/partners/Chainlink.svg",
+    src: "/partners/chainlink-logo.svg",
     alt: "Chainlink",
     link: "https://chain.link/",
   },
   {
-    src: "/partners/Inco.png",
-    alt: "INCO",
+    src: "/partners/inco-logo.svg",
+    alt: "Inco",
     link: "https://www.inco.org/",
   },
   {
-    src: "/partners/Blocksense.png",
-    alt: "blocksense",
+    src: "/partners/blocksense-logo.svg",
+    alt: "Blocksense",
     link: "https://blocksense.network/",
   },
   {
-    src: "/partners/Pharos.svg",
-    alt: "SOLANA",
-    link: "https://pharosnetwork.xyz/",
+    src: "/partners/circle-logo.svg",
+    alt: "Circle",
+    link: "https://circle.com/",
+  },
+  {
+    src: "/partners/solana-logo.svg",
+    alt: "Solana",
+    link: "https://solana.org/",
+  },
+  {
+    src: "/partners/ripple-logo.svg",
+    alt: "Ripple",
+    link: "https://ripple.com/",
   },
 ];
 
