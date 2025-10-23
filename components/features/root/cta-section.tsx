@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { DiagonalPattern } from "@/components/slant-dashes-svg";
 import BgGrain from "@/components/bg-grain-svg";
-import spoutWallstreet from "@/components/svg-assets/landingpage/spout-wallstreet.png";
 
 export function CTASection() {
   return (
@@ -13,7 +12,7 @@ export function CTASection() {
       <BgGrain className="absolute inset-0 w-full h-full z-0" />
       {/* Section content */}
       <div className="w-full max-w-[1800px] mx-auto px-16">
-        <div className="relative border border-gray-300 rounded-lg shadow-sm p-12">
+        <div className="relative border border-gray-300 rounded-none shadow-sm pl-5">
           {/* Top-left diamond */}
           <div className="hidden lg:block absolute -left-3 -top-3 z-20">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
@@ -63,7 +62,7 @@ export function CTASection() {
             {/* Right Image */}
             <div className="relative">
               <Image
-                src={spoutWallstreet}
+                src="/svg-assets/landingpage/spout-wallstreet.png"
                 alt="Stock Exchange Building"
                 width={600}
                 height={400}

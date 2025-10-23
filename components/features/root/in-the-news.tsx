@@ -4,29 +4,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { DiagonalPattern } from "@/components/slant-dashes-svg";
 import BgGrain from "@/components/bg-grain-svg";
-import spoutAp from "@/components/svg-assets/landingpage/spout-ap.webp";
-import spoutBusinessInsider from "@/components/svg-assets/landingpage/spout-business-insder.svg";
-import marketwatchSpout from "@/components/svg-assets/landingpage/marketwatch-spout.webp";
-import spoutBook from "@/components/svg-assets/landingpage/spout-book.svg";
 
 export function InTheNews() {
   const newsItems = [
     {
-      logo: spoutAp,
+      logo: "/svg-assets/landingpage/spout-ap.webp",
       publication: "AP News",
-      date: "JAN 15, 2025",
+      date: "SEP 9, 2025",
       url: "https://apnews.com/press-release/globenewswire-mobile/onepiece-labs-solana-accelerator-officially-launches-f2e8e0a2478df30533933fdfe8f07a5e",
     },
     {
-      logo: spoutBusinessInsider,
+      logo: "/svg-assets/landingpage/spout-business-insder.svg",
       publication: "Business Insider",
-      date: "JAN 15, 2025",
+      date: "SEP 9, 2025",
       url: "https://markets.businessinsider.com/news/stocks/onepiece-labs-solana-accelerator-officially-launches-1035128439",
     },
     {
-      logo: marketwatchSpout,
+      logo: "/svg-assets/landingpage/marketwatch-spout.webp",
       publication: "MarketWatch",
-      date: "JAN 15, 2025",
+      date: "SEP 9, 2025",
       url: "https://www.marketwatch.com/press-release/onepiece-labs-solana-accelerator-officially-launches-7b06ee13?mod=search_headline",
     },
   ];
@@ -102,7 +98,7 @@ export function InTheNews() {
                   className="flex items-center gap-2 px-3 py-2 md:px-4 bg-blue-50 border border-blue-200 rounded text-[#004040] font-noto-sans text-sm md:text-base font-medium hover:bg-blue-100 transition-colors flex-shrink-0"
                 >
                   <Image
-                    src={spoutBook}
+                    src="/svg-assets/landingpage/spout-book.svg"
                     alt="Article"
                     width={20}
                     height={20}

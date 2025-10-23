@@ -3,12 +3,6 @@
 import Image from "next/image";
 import { DiagonalPattern } from "@/components/slant-dashes-svg";
 import BgGrain from "@/components/bg-grain-svg";
-import spoutReserve from "@/components/svg-assets/landingpage/spout-reserve.svg";
-import spoutLock from "@/components/svg-assets/landingpage/spout-lock.svg";
-import spoutCoins from "@/components/svg-assets/landingpage/spout-coins.svg";
-import spoutBank from "@/components/svg-assets/landingpage/spout-bank.svg";
-import spoutCategory from "@/components/svg-assets/landingpage/spout-category.svg";
-import spoutShieldTick from "@/components/svg-assets/landingpage/spout-shield-tick.svg";
 
 export function ProofOfReserveLanding() {
   return (
@@ -31,7 +25,7 @@ export function ProofOfReserveLanding() {
         {/* Vault Image with Company Logos */}
         <div className="flex justify-center items-center mb-20">
           <Image
-            src={spoutReserve}
+            src="/svg-assets/landingpage/spout-reserve.svg"
             alt="Proof of Reserve Vault"
             width={900}
             height={600}
@@ -58,7 +52,7 @@ export function ProofOfReserveLanding() {
           {/* Bottom-left lock and diamond */}
           <div className="hidden lg:block absolute left-0 bottom-0 z-20">
             <Image
-              src={spoutLock}
+              src="/svg-assets/landingpage/spout-lock.svg"
               alt="Lock"
               width={40}
               height={40}
@@ -74,7 +68,7 @@ export function ProofOfReserveLanding() {
           {/* Bottom-right coins and diamond */}
           <div className="hidden lg:block absolute right-0 bottom-0 z-20">
             <Image
-              src={spoutCoins}
+              src="/svg-assets/landingpage/spout-coins.svg"
               alt="Coins"
               width={40}
               height={40}
@@ -92,7 +86,7 @@ export function ProofOfReserveLanding() {
             <div className="flex items-center gap-3 border border-gray-200 rounded-none px-6 lg:px-10 py-4 w-full lg:w-auto">
               <div className="flex items-center justify-center w-10 h-10 flex-shrink-0">
                 <Image
-                  src={spoutBank}
+                  src="/svg-assets/landingpage/spout-bank.svg"
                   alt="Bank"
                   width={40}
                   height={40}
@@ -109,7 +103,7 @@ export function ProofOfReserveLanding() {
             <div className="flex items-center gap-3 border border-gray-200 rounded-none px-6 lg:px-10 py-4 w-full lg:w-auto">
               <div className="flex items-center justify-center w-10 h-10 flex-shrink-0">
                 <Image
-                  src={spoutCategory}
+                  src="/svg-assets/landingpage/spout-category.svg"
                   alt="Category"
                   width={40}
                   height={40}
@@ -126,7 +120,7 @@ export function ProofOfReserveLanding() {
             <div className="flex items-center gap-3 border border-gray-200 rounded-none px-6 lg:px-10 py-4 w-full lg:w-auto">
               <div className="flex items-center justify-center w-10 h-10 flex-shrink-0">
                 <Image
-                  src={spoutShieldTick}
+                  src="/svg-assets/landingpage/spout-shield-tick.svg"
                   alt="Shield"
                   width={40}
                   height={40}

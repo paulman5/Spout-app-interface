@@ -3,33 +3,29 @@
 import Image from "next/image";
 import { DiagonalPattern } from "@/components/slant-dashes-svg";
 import BgGrain from "@/components/bg-grain-svg";
-import lockIcon from "@/components/svg-assets/landingpage/lock.svg";
-import securitySafeIcon from "@/components/svg-assets/landingpage/security-safe.svg";
-import flashIcon from "@/components/svg-assets/landingpage/flash.svg";
-import keyIcon from "@/components/svg-assets/landingpage/key.svg";
 
 export function InvestmentDifferent() {
   const features = [
     {
-      icon: lockIcon,
+      icon: "/svg-assets/landingpage/lock.svg",
       title: "Privacy Protection",
       description: "Confidential transactions with encrypted data",
       badges: ["Encrypted data", "Private transfers"],
     },
     {
-      icon: securitySafeIcon,
+      icon: "/svg-assets/landingpage/security-safe.svg",
       title: "Regulated Assets",
       description: "Backed by real corporate debt obligations",
       badges: ["SEC Compliant", "FDIC protected"],
     },
     {
-      icon: flashIcon,
+      icon: "/svg-assets/landingpage/flash.svg",
       title: "Instant Liquidity",
       description: "Trade tokens 24/7 on decentralized exchanges",
       badges: ["No Lock-up Period", "24/7 Trading"],
     },
     {
-      icon: keyIcon,
+      icon: "/svg-assets/landingpage/key.svg",
       title: "Confidential Assets",
       description: "Protected identity and private records",
       badges: ["Secure handling", "Private layers"],

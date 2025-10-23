@@ -3,11 +3,6 @@
 import Image from "next/image";
 import { DiagonalPattern } from "@/components/slant-dashes-svg";
 import BgGrain from "@/components/bg-grain-svg";
-import spoutKyc from "@/components/svg-assets/landingpage/spout-kyc.svg";
-import spoutEquities from "@/components/svg-assets/landingpage/spout-equities.svg";
-import spoutMoney from "@/components/svg-assets/landingpage/spout-money.svg";
-import spoutDefi from "@/components/svg-assets/landingpage/spout-defi.svg";
-import spoutPerformance from "@/components/svg-assets/landingpage/spout-performance.svg";
 
 const steps = [
   {
@@ -15,7 +10,7 @@ const steps = [
     title: "Complete KYC",
     description:
       'Connect your wallet and complete KYC verification to access investment-grade assets. KYC ensures that we are completely compliant with every jurisdiction"',
-    image: spoutKyc,
+    image: "/svg-assets/landingpage/spout-kyc.svg",
     imageAlt: "KYC Verification",
   },
   {
@@ -23,7 +18,7 @@ const steps = [
     title: "Access Public Equities",
     description:
       "Connect your wallet and complete KYC verification to access investment-grade assets. Assets include highly trading equities, including Tesla, Microsoft, Coinbase, etc.",
-    image: spoutEquities,
+    image: "/svg-assets/landingpage/spout-equities.svg",
     imageAlt: "Public Equities",
   },
   {
@@ -31,7 +26,7 @@ const steps = [
     title: "Earn Stable Yields",
     description:
       "Receive consistent returns from underlying bond interest payments. Dividends are automatically reinvested into the respective assets.",
-    image: spoutMoney,
+    image: "/svg-assets/landingpage/spout-money.svg",
     imageAlt: "Stable Yields",
   },
   {
@@ -39,7 +34,7 @@ const steps = [
     title: "Utilize in DeFi with our Stablecoin",
     description:
       "Use your tokenized assets in DeFi protocols for lending, borrowing, and yield farming. Use your assets as collateral to mint our ERC20 stablecoin that can be used seamlessly across DeFi.",
-    image: spoutDefi,
+    image: "/svg-assets/landingpage/spout-defi.svg",
     imageAlt: "DeFi Integration",
   },
   {
@@ -47,7 +42,7 @@ const steps = [
     title: "Track Performance",
     description:
       "Monitor your portfolio with real-time analytics and transparent reporting. Trade assets with a UI similar to your traditional brokerage.",
-    image: spoutPerformance,
+    image: "/svg-assets/landingpage/spout-performance.svg",
     imageAlt: "Performance Tracking",
   },
 ];

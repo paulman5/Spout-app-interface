@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { DiagonalPattern } from "@/components/slant-dashes-svg";
 import BgGrain from "@/components/bg-grain-svg";
-import spoutBenefits from "@/components/svg-assets/landingpage/spout-benefits.svg";
-import spoutLockWhite from "@/components/svg-assets/landingpage/spout-lock-white.svg";
 
 export function UnlockingFinance() {
   return (
@@ -104,7 +102,7 @@ export function UnlockingFinance() {
             {/* Benefits icon */}
             <div className="flex justify-center md:absolute md:bottom-6 md:right-6">
               <Image
-                src={spoutBenefits}
+                src="/svg-assets/landingpage/spout-benefits.svg"
                 alt="Benefits"
                 width={180}
                 height={180}
@@ -117,7 +115,7 @@ export function UnlockingFinance() {
           <div className="border bg-white border-gray-300 rounded-lg p-8 relative">
             <div className="flex items-center gap-3 mb-4">
               <Image
-                src={spoutLockWhite}
+                src="/svg-assets/landingpage/spout-lock-white.svg"
                 alt="Lock"
                 width={24}
                 height={24}
@@ -150,7 +148,7 @@ export function UnlockingFinance() {
             {/* Lock icon */}
             <div className="flex justify-center md:absolute md:bottom-3 md:right-6">
               <Image
-                src={spoutLockWhite}
+                src="/svg-assets/landingpage/spout-lock-white.svg"
                 alt="Lock"
                 width={160}
                 height={160}

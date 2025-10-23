@@ -8,7 +8,6 @@ import { JoinMailingList } from "./join-mailing-list";
 import { PartnerTicker } from "./partner-ticker";
 import Image from "next/image";
 import { DiagonalPattern } from "@/components/slant-dashes-svg";
-import spoutWaterTokens from "@/components/svg-assets/spout-water-tokens-opt.svg";
 import BgGrain from "@/components/bg-grain-svg";
 
 export function HeroSection() {
@@ -72,7 +71,7 @@ export function HeroSection() {
         <div className="w-full lg:w-[45%] flex items-start justify-center lg:justify-end -mt-8">
           <div className="w-full max-w-md lg:max-w-xl">
             <Image
-              src={spoutWaterTokens}
+              src="/svg-assets/spout-water-tokens-opt.svg"
               alt="Spout Water Tokens"
               width={550}
               height={550}
