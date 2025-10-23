@@ -7,7 +7,7 @@ export function ProofOfReserveSection() {
         <Waves />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pb-8">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-slate-900 mb-6">
             Proof of Reserve

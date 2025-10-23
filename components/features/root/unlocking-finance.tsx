@@ -7,11 +7,11 @@ import BgGrain from "@/components/bg-grain-svg";
 
 export function UnlockingFinance() {
   return (
-    <section className="w-full py-20 relative">
+    <section className="w-full py-8 relative">
       {/* Background grain for this section */}
       <BgGrain className="absolute inset-0 w-full h-full z-0" />
       {/* Section content */}
-      <div className="w-full max-w-6xl mx-auto px-8">
+      <div className="w-full max-w-6xl mx-auto px-8 pb-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-lora font-normal text-[#004040] mb-6">
