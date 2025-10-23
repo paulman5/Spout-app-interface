@@ -15,29 +15,73 @@ export function CTASection() {
         <div className="relative border border-gray-300 rounded-none shadow-sm pl-5">
           {/* Top-left diamond */}
           <div className="hidden lg:block absolute -left-3 -top-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
           {/* Top-right diamond */}
           <div className="hidden lg:block absolute -right-3 -top-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
           {/* Bottom-left diamond */}
           <div className="hidden lg:block absolute -left-3 -bottom-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
           {/* Bottom-right diamond */}
           <div className="hidden lg:block absolute -right-3 -bottom-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
@@ -48,7 +92,8 @@ export function CTASection() {
                 Ready to Start Earning Stable Yields?
               </h2>
               <p className="text-lg font-noto-sans text-[#475569] mb-8 leading-relaxed">
-                Join thousands of users who are already earning consistent returns from investment-grade corporate bonds on the blockchain.
+                Join thousands of users who are already earning consistent
+                returns from investment-grade corporate bonds on the blockchain.
               </p>
               <div>
                 <Link href="/app">
@@ -75,15 +120,14 @@ export function CTASection() {
 
       {/* Diagonal blue lines at bottom */}
       <div className="absolute bottom-0 w-full z-10">
-        <DiagonalPattern 
-          width="100%" 
-          height={34} 
-          color="#A7C6ED" 
-          strokeWidth={2} 
-          spacing={14} 
+        <DiagonalPattern
+          width="100%"
+          height={34}
+          color="#A7C6ED"
+          strokeWidth={2}
+          spacing={14}
         />
       </div>
     </section>
   );
 }
-

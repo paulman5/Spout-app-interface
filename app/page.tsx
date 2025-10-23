@@ -15,50 +15,50 @@ export default function HomePage() {
   return (
     <>
       <div className="min-h-screen w-full overflow-x-hidden flex flex-col items-center justify-center relative">
-      {/* Hero Section */}
-      <div className="relative z-10 w-full">
-        <HeroSection />
-      </div>
+        {/* Hero Section */}
+        <div className="relative z-10 w-full">
+          <HeroSection />
+        </div>
 
-      {/* How Spout Works Section */}
-      <div className="relative z-10 w-full">
-        <HowSpoutWorks />
-      </div>
+        {/* How Spout Works Section */}
+        <div className="relative z-10 w-full">
+          <HowSpoutWorks />
+        </div>
 
-      {/* Proof of Reserve Section */}
-      <div className="relative z-10 w-full">
-        <ProofOfReserveLanding />
-      </div>
+        {/* Proof of Reserve Section */}
+        <div className="relative z-10 w-full">
+          <ProofOfReserveLanding />
+        </div>
 
-      {/* Unlocking Finance Section */}
-      <div className="relative z-10 w-full">
-        <UnlockingFinance />
-      </div>
+        {/* Unlocking Finance Section */}
+        <div className="relative z-10 w-full">
+          <UnlockingFinance />
+        </div>
 
-      {/* Investment Different Section */}
-      <div className="relative z-10 w-full">
-        <InvestmentDifferent />
-      </div>
+        {/* Investment Different Section */}
+        <div className="relative z-10 w-full">
+          <InvestmentDifferent />
+        </div>
 
-      {/* In The News Section */}
-      <div className="relative z-10 w-full">
-        <InTheNews />
-      </div>
+        {/* In The News Section */}
+        <div className="relative z-10 w-full">
+          <InTheNews />
+        </div>
 
-      {/* FAQ Section */}
-      <div className="relative z-10 w-full">
-        <FAQSection />
-      </div>
+        {/* FAQ Section */}
+        <div className="relative z-10 w-full">
+          <FAQSection />
+        </div>
 
-      {/* CTA Section */}
-      <div className="relative z-10 w-full">
-        <CTASection />
-      </div>
+        {/* CTA Section */}
+        <div className="relative z-10 w-full">
+          <CTASection />
+        </div>
 
-      {/* Animated Footer */}
-      <div className="relative z-10 w-full">
-        <AnimatedFooterSection />
-      </div>
+        {/* Animated Footer */}
+        <div className="relative z-10 w-full">
+          <AnimatedFooterSection />
+        </div>
       </div>
     </>
   );

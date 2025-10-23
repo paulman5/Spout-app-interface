@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface BgGrainProps extends React.SVGProps<SVGSVGElement> {
   width?: number | string;
@@ -37,24 +37,24 @@ const BgGrain: React.FC<BgGrainProps> = ({
     >
       <defs>
         <filter id="grain-filter">
-          <feTurbulence 
-            type="fractalNoise" 
-            baseFrequency="0.4" 
-            numOctaves="4" 
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.4"
+            numOctaves="4"
             stitchTiles="stitch"
           />
-          <feColorMatrix type="saturate" values="0"/>
+          <feColorMatrix type="saturate" values="0" />
           <feComponentTransfer>
-            <feFuncA type="discrete" tableValues="0 0 0 1 1 1 1 1 1 1"/>
+            <feFuncA type="discrete" tableValues="0 0 0 1 1 1 1 1 1 1" />
           </feComponentTransfer>
-          <feBlend mode="overlay" in2="SourceGraphic"/>
+          <feBlend mode="overlay" in2="SourceGraphic" />
         </filter>
       </defs>
-      <rect 
-        width="100%" 
-        height="100%" 
-        fill="transparent" 
-        filter="url(#grain-filter)" 
+      <rect
+        width="100%"
+        height="100%"
+        fill="transparent"
+        filter="url(#grain-filter)"
         opacity={fillOpacity}
       />
     </svg>

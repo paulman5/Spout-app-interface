@@ -113,13 +113,14 @@ export function PartnerTicker() {
         {/* Fixed "Compatible With Leading Networks" box */}
         <div className="bg-white rounded-l-lg px-8 py-6 border-r border-gray-300 flex-shrink-0">
           <h3 className="text-lg font-noto-sans text-[#334155] font-semibold text-center leading-tight">
-            Compatible With<br />
+            Compatible With
+            <br />
             Leading Networks
           </h3>
         </div>
-        
+
         {/* Animated partner logos */}
-        <div 
+        <div
           className="flex-1 overflow-hidden bg-white"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -129,10 +130,7 @@ export function PartnerTicker() {
             className="flex items-center will-change-transform"
             style={{ transform: "translate3d(0,0,0)" }}
           >
-            <div
-              ref={contentRef}
-              className="flex items-center shrink-0"
-            >
+            <div ref={contentRef} className="flex items-center shrink-0">
               {/* Duplicate the partners array for seamless loop */}
               {[...partners, ...partners, ...partners].map((partner, idx) => (
                 <Link

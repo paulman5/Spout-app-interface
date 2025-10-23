@@ -100,9 +100,7 @@ export const Footer: React.FC<FooterProps> = ({
               className="h-10 w-auto"
             />
           </div>
-          <p className="text-sm text-gray-600">
-            {copyrightText}
-          </p>
+          <p className="text-sm text-gray-600">{copyrightText}</p>
         </div>
 
         {/* Right side - Links grid */}
@@ -193,7 +191,9 @@ export const Footer: React.FC<FooterProps> = ({
             Disclaimer
           </h5>
           <p className="text-sm text-gray-600 leading-relaxed">
-            All provided information has been carefully researched and checked. In spite of taking due care, Spout does not accept any warranty for the information being correct, complete, and up to date.
+            All provided information has been carefully researched and checked.
+            In spite of taking due care, Spout does not accept any warranty for
+            the information being correct, complete, and up to date.
           </p>
         </div>
       </div>
@@ -203,9 +203,7 @@ export const Footer: React.FC<FooterProps> = ({
 
 // Default footer component with Spout Finance links
 const DefaultFooter = () => {
-  const leftLinks = [
-    { href: "/app/trade", label: "Trading" },
-  ];
+  const leftLinks = [{ href: "/app/trade", label: "Trading" }];
 
   const rightLinks = [
     { href: "/company", label: "About Us" },

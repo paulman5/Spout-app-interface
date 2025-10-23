@@ -10,15 +10,19 @@ export function FAQSection() {
   const faqs = [
     {
       question: "How does Spout bring traditional assets like bonds to DeFi?",
-      answer: "Spout brings traditional assets like bonds to DeFi by tokenizing U.S. investment-grade ETFs into secure, yield-bearing tokens backed 1:1 by real assets.",
+      answer:
+        "Spout brings traditional assets like bonds to DeFi by tokenizing U.S. investment-grade ETFs into secure, yield-bearing tokens backed 1:1 by real assets.",
     },
     {
-      question: "What guarantees that Spout tokens are secure and fully backed?",
-      answer: "Every Spout token is backed 1:1 by investment-grade bond ETFs held by qualified U.S. custodians. We provide full transparency through on-chain proof-of-reserve verification, ensuring complete accountability and security for all tokenized assets.",
+      question:
+        "What guarantees that Spout tokens are secure and fully backed?",
+      answer:
+        "Every Spout token is backed 1:1 by investment-grade bond ETFs held by qualified U.S. custodians. We provide full transparency through on-chain proof-of-reserve verification, ensuring complete accountability and security for all tokenized assets.",
     },
     {
       question: "How can investors generate yield through Spout's platform?",
-      answer: "Investors generate yield by holding Spout tokens, which accrue yield on price movement or dividends when attached to the underlying asset. The yield is distributed automatically to token holders. Spout tokens will be eligible to serve as collateral in the Spout lending market to efficiently borrow against your assets.",
+      answer:
+        "Investors generate yield by holding Spout tokens, which accrue yield on price movement or dividends when attached to the underlying asset. The yield is distributed automatically to token holders. Spout tokens will be eligible to serve as collateral in the Spout lending market to efficiently borrow against your assets.",
     },
   ];
 
@@ -39,10 +43,14 @@ export function FAQSection() {
               [ FAQ ]
             </div>
             <h2 className="text-4xl lg:text-5xl font-lora font-normal text-[#004040] mb-6">
-              Frequently asked<br />questions
+              Frequently asked
+              <br />
+              questions
             </h2>
             <p className="text-lg font-noto-sans font-normal text-[#475569] leading-relaxed">
-              Everything you need to know about Spout and<br />how we're changing decentralized investing.
+              Everything you need to know about Spout and
+              <br />
+              how we're changing decentralized investing.
             </p>
           </div>
 
@@ -91,15 +99,14 @@ export function FAQSection() {
 
       {/* Diagonal blue lines at bottom */}
       <div className="relative z-10 w-full mt-20">
-        <DiagonalPattern 
-          width="100%" 
-          height={34} 
-          color="#A7C6ED" 
-          strokeWidth={2} 
-          spacing={14} 
+        <DiagonalPattern
+          width="100%"
+          height={34}
+          color="#A7C6ED"
+          strokeWidth={2}
+          spacing={14}
         />
       </div>
     </section>
   );
 }
-

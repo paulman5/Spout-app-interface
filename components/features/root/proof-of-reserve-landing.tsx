@@ -17,8 +17,8 @@ export function ProofOfReserveLanding() {
             <span className="font-medium">Proof</span> of Reserve
           </h2>
           <p className="text-lg font-noto-sans font-normal text-[#475569] max-w-3xl mx-auto leading-relaxed">
-            Every token is fully backed 1:1 by investment-grade bond ETFs, held by
-            qualified U.S. custodians for maximum security.
+            Every token is fully backed 1:1 by investment-grade bond ETFs, held
+            by qualified U.S. custodians for maximum security.
           </p>
         </div>
 
@@ -37,15 +37,37 @@ export function ProofOfReserveLanding() {
         <div className="relative bg-white border border-gray-300 rounded-lg shadow-sm px-4 py-6 lg:py-3 max-w-[1100px] mx-auto">
           {/* Top-left diamond */}
           <div className="hidden lg:block absolute -left-3 -top-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
           {/* Top-right diamond */}
           <div className="hidden lg:block absolute -right-3 -top-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
@@ -60,8 +82,19 @@ export function ProofOfReserveLanding() {
             />
           </div>
           <div className="hidden lg:block absolute -left-3 -bottom-3 z-30">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
@@ -76,8 +109,19 @@ export function ProofOfReserveLanding() {
             />
           </div>
           <div className="hidden lg:block absolute -right-3 -bottom-3 z-30">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
@@ -95,7 +139,9 @@ export function ProofOfReserveLanding() {
               </div>
               <div>
                 <div className="text-xl font-bold text-[#004040]">$200k</div>
-                <div className="text-xs text-[#475569] whitespace-nowrap">Assets On-Chain</div>
+                <div className="text-xs text-[#475569] whitespace-nowrap">
+                  Assets On-Chain
+                </div>
               </div>
             </div>
 
@@ -112,7 +158,9 @@ export function ProofOfReserveLanding() {
               </div>
               <div>
                 <div className="text-xl font-bold text-[#004040]">1,124</div>
-                <div className="text-xs text-[#475569] whitespace-nowrap">Investments Tokenized</div>
+                <div className="text-xs text-[#475569] whitespace-nowrap">
+                  Investments Tokenized
+                </div>
               </div>
             </div>
 
@@ -129,7 +177,9 @@ export function ProofOfReserveLanding() {
               </div>
               <div>
                 <div className="text-xl font-bold text-[#004040]">100%</div>
-                <div className="text-xs text-[#475569] whitespace-nowrap">Proof-of-Reserve Verified</div>
+                <div className="text-xs text-[#475569] whitespace-nowrap">
+                  Proof-of-Reserve Verified
+                </div>
               </div>
             </div>
           </div>
@@ -138,15 +188,14 @@ export function ProofOfReserveLanding() {
 
       {/* Diagonal blue lines at bottom */}
       <div className="relative z-10 w-full mt-20">
-        <DiagonalPattern 
-          width="100%" 
-          height={34} 
-          color="#A7C6ED" 
-          strokeWidth={2} 
-          spacing={14} 
+        <DiagonalPattern
+          width="100%"
+          height={34}
+          color="#A7C6ED"
+          strokeWidth={2}
+          spacing={14}
         />
       </div>
     </section>
   );
 }
-

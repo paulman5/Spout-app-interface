@@ -7,5 +7,3 @@ export function AnnouncementBarWrapper() {
   if (pathname !== "/") return null;
   return <AnnouncementBar />;
 }
-
-

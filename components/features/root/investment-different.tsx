@@ -44,7 +44,9 @@ export function InvestmentDifferent() {
             How we do <span className="font-medium">Investment</span> different
           </h2>
           <p className="text-lg font-noto-sans font-normal text-[#475569] max-w-4xl mx-auto leading-relaxed">
-            Consistent 5-8% returns from regulated corporate debt, with instant trading<br />
+            Consistent 5-8% returns from regulated corporate debt, with instant
+            trading
+            <br />
             and full transparency
           </p>
         </div>
@@ -53,84 +55,194 @@ export function InvestmentDifferent() {
         <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 mb-12">
           {/* Top-left diamond */}
           <div className="hidden lg:block absolute -left-3 -top-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
           {/* Top-middle diamond 1 (25%) */}
           <div className="hidden lg:block absolute left-[25%] -translate-x-1/2 -top-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
           {/* Top-middle diamond 2 (50%) */}
           <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 -top-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
           {/* Top-middle diamond 3 (75%) */}
           <div className="hidden lg:block absolute left-[75%] -translate-x-1/2 -top-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
           {/* Top-right diamond */}
           <div className="hidden lg:block absolute -right-3 -top-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
           {/* Bottom-left diamond */}
           <div className="hidden lg:block absolute -left-3 -bottom-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
           {/* Bottom-middle diamond 1 (25%) */}
           <div className="hidden lg:block absolute left-[25%] -translate-x-1/2 -bottom-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
           {/* Bottom-middle diamond 2 (50%) */}
           <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 -bottom-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
           {/* Bottom-middle diamond 3 (75%) */}
           <div className="hidden lg:block absolute left-[75%] -translate-x-1/2 -bottom-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
           {/* Bottom-right diamond */}
           <div className="hidden lg:block absolute -right-3 -bottom-3 z-20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-300">
-              <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="currentColor" strokeWidth="3" fill="white"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-blue-300"
+            >
+              <path
+                d="M12 2L22 12L12 22L2 12L12 2Z"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="white"
+              />
             </svg>
           </div>
 
           {features.map((feature, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={`border bg-white border-gray-300 p-6 rounded-none lg:rounded-none flex flex-col ${
-                index === 0 ? 'lg:rounded-l-lg' : 
-                index === features.length - 1 ? 'lg:rounded-r-lg' : 
-                ''
-              } ${
-                index !== features.length - 1 ? 'lg:border-r-0' : ''
-              }`}
+                index === 0
+                  ? "lg:rounded-l-lg"
+                  : index === features.length - 1
+                    ? "lg:rounded-r-lg"
+                    : ""
+              } ${index !== features.length - 1 ? "lg:border-r-0" : ""}`}
             >
               {/* Icon and Title */}
               <div className="flex items-start gap-3 mb-4">
@@ -169,15 +281,14 @@ export function InvestmentDifferent() {
 
       {/* Diagonal blue lines at bottom */}
       <div className="relative z-10 w-full mt-10">
-        <DiagonalPattern 
-          width="100%" 
-          height={34} 
-          color="#A7C6ED" 
-          strokeWidth={2} 
-          spacing={14} 
+        <DiagonalPattern
+          width="100%"
+          height={34}
+          color="#A7C6ED"
+          strokeWidth={2}
+          spacing={14}
         />
       </div>
     </section>
   );
 }
-

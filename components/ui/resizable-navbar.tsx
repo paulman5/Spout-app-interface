@@ -243,7 +243,12 @@ export const NavbarLogo = () => {
       href="/"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
-      <Image src="/spout-full-dark-logo.svg" alt="logo" width={100} height={40} />
+      <Image
+        src="/spout-full-dark-logo.svg"
+        alt="logo"
+        width={100}
+        height={40}
+      />
       {/* <span className="font-bold text-lg text-[#334155] dark:text-white">
         Spout Finance
       </span> */}
