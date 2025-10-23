@@ -141,8 +141,8 @@ export function HowSpoutWorks() {
             <div
               key={index}
               className={`grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch border-gray-300 rounded-none overflow-hidden mb-6 last:mb-0 relative ${
-                index === 0 
-                  ? "border border-t border-l border-r border-b" 
+                index === 0
+                  ? "border border-t border-l border-r border-b"
                   : "border-l border-r border-b"
               }`}
             >
