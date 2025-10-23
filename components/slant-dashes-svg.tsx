@@ -36,15 +36,89 @@ export const DiagonalPattern = ({
   }
 
   return (
-    <svg
-      width={width}
-      height={height}
-      viewBox={`0 0 ${numericWidth} ${height}`}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="none"
-    >
-      {lines}
-    </svg>
+    <div className="relative border-[1px] border-[#A7C6ED] rounded-none shadow-sm">
+      {/* Top-left diamond */}
+      <div className="hidden lg:block absolute -left-2 -top-2 z-20">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          className="text-blue-300"
+        >
+          <path
+            d="M12 2L22 12L12 22L2 12L12 2Z"
+            stroke="currentColor"
+            strokeWidth="3"
+            fill="white"
+          />
+        </svg>
+      </div>
+
+      {/* Top-right diamond */}
+      <div className="hidden lg:block absolute -right-2 -top-2 z-20">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          className="text-blue-300"
+        >
+          <path
+            d="M12 2L22 12L12 22L2 12L12 2Z"
+            stroke="currentColor"
+            strokeWidth="3"
+            fill="white"
+          />
+        </svg>
+      </div>
+
+      {/* Bottom-left diamond */}
+      <div className="hidden lg:block absolute -left-2 -bottom-2 z-20">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          className="text-blue-300"
+        >
+          <path
+            d="M12 2L22 12L12 22L2 12L12 2Z"
+            stroke="currentColor"
+            strokeWidth="3"
+            fill="white"
+          />
+        </svg>
+      </div>
+
+      {/* Bottom-right diamond */}
+      <div className="hidden lg:block absolute -right-2 -bottom-2 z-20">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          className="text-blue-300"
+        >
+          <path
+            d="M12 2L22 12L12 22L2 12L12 2Z"
+            stroke="currentColor"
+            strokeWidth="3"
+            fill="white"
+          />
+        </svg>
+      </div>
+
+      <svg
+        width={width}
+        height={height}
+        viewBox={`0 0 ${numericWidth} ${height}`}
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+      >
+        {lines}
+      </svg>
+    </div>
   );
 };

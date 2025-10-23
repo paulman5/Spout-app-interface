@@ -92,7 +92,7 @@ export function HeroSection() {
       </div>
 
       {/* Slant Dashes */}
-      <div className="relative z-10 w-full mt-10">
+      <div className="relative z-10 w-full mt-10 px-4 py-2">
         <DiagonalPattern
           width="100%"
           height={34}

@@ -139,7 +139,7 @@ export function UnlockingFinance() {
           </div>
 
           {/* DeFi Integration Benefits Card */}
-          <div className="border bg-white border-gray-300 rounded-lg p-8 relative">
+          <div className="border bg-white border-gray-300 rounded-l-lg p-8 relative">
             <div className="flex items-center gap-3 mb-4">
               <svg
                 className="w-6 h-6 text-[#004040]"
@@ -194,7 +194,7 @@ export function UnlockingFinance() {
           </div>
 
           {/* DeFi Security & Transparency Card */}
-          <div className="border bg-white border-gray-300 rounded-lg p-8 relative">
+          <div className="border-t border-r border-b border-l-0 bg-white border-gray-300 rounded-r-lg p-8 relative">
             <div className="flex items-center gap-3 mb-4">
               <Image
                 src="/svg-assets/defi-security-transparency.svg"
@@ -268,7 +268,7 @@ export function UnlockingFinance() {
       </div>
 
       {/* Diagonal blue lines at bottom */}
-      <div className="relative z-10 w-full mt-10">
+      <div className="relative z-10 w-full mt-10 px-4 py-2">
         <DiagonalPattern
           width="100%"
           height={34}

@@ -98,7 +98,7 @@ export function FAQSection() {
       </div>
 
       {/* Diagonal blue lines at bottom */}
-      <div className="relative z-10 w-full mt-20">
+      <div className="relative z-10 w-full mt-20 px-4 py-2">
         <DiagonalPattern
           width="100%"
           height={34}

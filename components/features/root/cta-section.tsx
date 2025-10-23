@@ -7,11 +7,11 @@ import BgGrain from "@/components/bg-grain-svg";
 
 export function CTASection() {
   return (
-    <section className="w-full py-20 relative">
+    <section className="w-full py-12 relative">
       {/* Background grain for this section */}
       <BgGrain className="absolute inset-0 w-full h-full z-0" />
       {/* Section content */}
-      <div className="w-full max-w-[1800px] mx-auto px-16">
+      <div className="w-full max-w-[1800px] mx-auto px-16 pb-24">
         <div className="relative border border-gray-300 rounded-none shadow-sm pl-5">
           {/* Top-left diamond */}
           <div className="hidden lg:block absolute -left-3 -top-3 z-20">
@@ -119,7 +119,7 @@ export function CTASection() {
       </div>
 
       {/* Diagonal blue lines at bottom */}
-      <div className="absolute bottom-0 w-full z-10">
+      <div className="absolute bottom-0 w-full z-10 px-4 py-2">
         <DiagonalPattern
           width="100%"
           height={34}

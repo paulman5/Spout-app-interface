@@ -86,9 +86,16 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <footer
       ref={footerRef}
-      className="bg-gray-50 text-gray-900 relative flex flex-col w-full h-full justify-between select-none"
+      className="bg-gray-50 text-gray-900 relative flex flex-col w-full h-full justify-between select-none z-0"
     >
-      <div className="container mx-auto flex flex-col lg:flex-row justify-between w-full gap-12 py-12 px-6 lg:px-16 max-w-7xl">
+      {/* Vertical lines for footer */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        {/* Left vertical line */}
+        <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-[#A7C6ED]"></div>
+        {/* Right vertical line */}
+        <div className="absolute right-4 top-0 bottom-0 w-[2px] bg-[#A7C6ED]"></div>
+      </div>
+      <div className="container mx-auto flex flex-col lg:flex-row justify-between w-full gap-12 py-12 px-6 lg:px-16 max-w-7xl relative z-10">
         {/* Left side - Logo and copyright */}
         <div className="space-y-6 lg:max-w-xs">
           <div className="flex items-center mb-4">
@@ -185,7 +192,43 @@ export const Footer: React.FC<FooterProps> = ({
       </div>
 
       {/* Disclaimer Section */}
-      <div className="border-t border-gray-300">
+      <div className="border-t-[2px] border-[#A7C6ED] relative z-10">
+        {/* Top-left diamond */}
+        <div className="hidden lg:block absolute left-2 -top-2 z-20">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            className="text-blue-300"
+          >
+            <path
+              d="M12 2L22 12L12 22L2 12L12 2Z"
+              stroke="currentColor"
+              strokeWidth="3"
+              fill="white"
+            />
+          </svg>
+        </div>
+
+        {/* Top-right diamond */}
+        <div className="hidden lg:block absolute right-2 -top-2 z-20">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            className="text-blue-300"
+          >
+            <path
+              d="M12 2L22 12L12 22L2 12L12 2Z"
+              stroke="currentColor"
+              strokeWidth="3"
+              fill="white"
+            />
+          </svg>
+        </div>
+
         <div className="container mx-auto px-6 lg:px-16 py-8 max-w-7xl">
           <h5 className="font-semibold text-gray-900 mb-3 text-base">
             Disclaimer

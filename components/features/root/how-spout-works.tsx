@@ -187,7 +187,7 @@ export function HowSpoutWorks() {
       </div>
 
       {/* Diagonal blue lines at bottom */}
-      <div className="relative z-10 w-full mt-40">
+      <div className="relative z-10 w-full mt-40 px-4 py-2">
         <DiagonalPattern
           width="100%"
           height={34}
