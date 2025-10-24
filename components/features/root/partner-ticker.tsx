@@ -113,7 +113,49 @@ export function PartnerTicker() {
   }, [isPaused]);
 
   return (
-    <div className="w-full rounded-lg border border-gray-300 overflow-hidden">
+    <div className="w-full rounded-lg border border-gray-300 relative">
+      {/* Horizontal lines extending from center to screen edges */}
+      {/* Left side line */}
+      <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[50vw] w-[50vw] h-[1.5px] bg-[#A7C6ED] z-10"></div>
+      {/* Right side line */}
+      <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-[50vw] w-[50vw] h-[1.5px] bg-[#A7C6ED] z-10"></div>
+      
+      {/* Diamonds at intersection points with vertical page lines */}
+      {/* Left intersection diamond - positioned at left vertical page line */}
+      <div className="hidden md:block absolute -left-[120px] top-1/2 -translate-y-1/2 z-20">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          className="text-blue-300"
+        >
+          <path
+            d="M12 2L22 12L12 22L2 12L12 2Z"
+            stroke="currentColor"
+            strokeWidth="3"
+            fill="white"
+          />
+        </svg>
+      </div>
+      
+      {/* Right intersection diamond - positioned at right vertical page line */}
+      <div className="hidden md:block absolute -right-[120px] top-1/2 -translate-y-1/2 z-20">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          className="text-blue-300"
+        >
+          <path
+            d="M12 2L22 12L12 22L2 12L12 2Z"
+            stroke="currentColor"
+            strokeWidth="3"
+            fill="white"
+          />
+        </svg>
+      </div>
       <div className="flex flex-col sm:flex-row items-center">
         {/* Fixed "Compatible With Leading Networks" box */}
         <div className="bg-white rounded-t-lg sm:rounded-l-lg sm:rounded-t-none px-4 sm:px-6 lg:px-8 py-4 sm:py-6 border-b sm:border-b-0 sm:border-r border-gray-300 flex-shrink-0 w-full sm:w-auto">

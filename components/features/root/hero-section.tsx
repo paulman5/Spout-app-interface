@@ -87,7 +87,12 @@ export function HeroSection() {
 
         {/* Compatible Networks Section */}
         <div className="relative z-10 w-full max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-16 mb-3 sm:mb-6">
-          <PartnerTicker />
+          <div className="px-16 hidden md:block">
+            <PartnerTicker />
+          </div>
+          <div className="block md:hidden">
+            <PartnerTicker />
+          </div>
         </div>
       </div>
 
