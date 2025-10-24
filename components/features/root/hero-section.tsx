@@ -26,59 +26,59 @@ export function HeroSection() {
         {/* <div className="absolute inset-0 z-[1] bg-gradient-to-t from-transparent from-0% via-transparent via-75% to-gray-50 to-100%"></div> */}
 
         {/* Main content */}
-        <div className="relative z-10 w-full max-w-[1800px] mx-auto px-16 pt-20 pb-0 flex flex-col lg:flex-row items-start justify-between gap-0">
+        <div className="relative z-10 w-full max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-16 pt-6 sm:pt-12 lg:pt-20 pb-0 flex flex-col lg:flex-row items-start justify-between gap-0">
           {/* Left column - Text content */}
-          <div className="w-full lg:w-[55%] mb-12 lg:mb-0">
-            <div className="max-w-5xl">
+          <div className="w-full lg:w-[55%] mb-6 sm:mb-12 lg:mb-0">
+            <div className="max-w-5xl space-y-4 sm:space-y-6">
               {/* Main heading */}
-              <h1 className="text-3xl lg:text-5xl font-lora font-normal text-[#004040] mb-8 leading-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-5xl font-lora font-normal text-[#004040] leading-tight">
                 The platform for what's next
                 <br />
                 in decentralized investing
               </h1>
 
               {/* Description */}
-              <p className="text-lg lg:text-xl font-noto-sans text-[#334155] mb-12 leading-relaxed">
+              <p className="text-sm sm:text-lg lg:text-xl font-noto-sans text-[#334155] leading-relaxed">
                 Spout makes U.S. investment-grade assets like bonds and equities
                 available as secure, yield-bearing tokens, fully backed 1:1 by
                 real ETFs.
               </p>
 
               {/* CTA Button */}
-              <div className="mb-8">
+              <div className="pt-2 sm:pt-0">
                 <Link href="/app">
                   <Button
                     size="lg"
-                    className="bg-[#004040] hover:bg-[#003030] data-[hovered]:bg-[#003030] text-white px-10 py-5 text-xl font-semibold rounded-none shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="bg-[#004040] hover:bg-[#003030] data-[hovered]:bg-[#003030] text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 text-base sm:text-lg lg:text-xl font-semibold rounded-none shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
                   >
                     Launch Platform
-                    <ArrowRight className="ml-3 h-6 w-6" />
+                    <ArrowRight className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
                   </Button>
                 </Link>
               </div>
 
               {/* Secondary text */}
-              <p className="text-base font-noto-sans text-[#6b7280] uppercase tracking-wide mb-8">
+              <p className="text-xs sm:text-sm lg:text-base font-noto-sans text-[#6b7280] uppercase tracking-wide">
                 [JOIN THE PLATFORM THAT'S MAKING TRADITIONAL CAPITAL MORE
                 EFFICIENT]
               </p>
 
               {/* Mailing List */}
-              <div className="max-w-md">
+              <div className="max-w-md pt-2 sm:pt-0">
                 <JoinMailingList />
               </div>
             </div>
           </div>
 
           {/* Right column - SVG graphic */}
-          <div className="w-full lg:w-[45%] flex items-start justify-center lg:justify-end -mt-8">
-            <div className="w-full max-w-md lg:max-w-xl">
+          <div className="w-full lg:w-[45%] flex items-center justify-center lg:justify-end -mt-2 sm:-mt-6 lg:-mt-8">
+            <div className="w-full max-w-[280px] sm:max-w-sm lg:max-w-xl">
               <Image
                 src="/svg-assets/landingpage/spout-water-tokens.svg"
                 alt="Spout Water Tokens"
                 width={550}
                 height={550}
-                className="w-full"
+                className="w-full h-auto"
                 priority
               />
             </div>
@@ -86,7 +86,7 @@ export function HeroSection() {
         </div>
 
         {/* Compatible Networks Section */}
-        <div className="relative z-10 w-full max-w-[1800px] mx-auto px-16 mb-6">
+        <div className="relative z-10 w-full max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-16 mb-3 sm:mb-6">
           <PartnerTicker />
         </div>
       </div>

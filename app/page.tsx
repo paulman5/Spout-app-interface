@@ -15,8 +15,8 @@ export default function HomePage() {
   return (
     <>
       <div className="min-h-screen w-full overflow-x-hidden flex flex-col items-center justify-center relative">
-        {/* Vertical lines on both sides */}
-        <div className="fixed inset-0 pointer-events-none z-0">
+        {/* Vertical lines on both sides - hidden on mobile */}
+        <div className="hidden md:block fixed inset-0 pointer-events-none z-0">
           {/* Left vertical line */}
           <div className="absolute left-4 top-0 bottom-0 w-[1.5px] bg-[#A7C6ED]"></div>
           {/* Right vertical line */}

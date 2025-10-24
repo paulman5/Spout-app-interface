@@ -18,10 +18,12 @@ export const DiagonalPattern = ({
   const numericWidth = getNumericWidth(width);
 
   // Calculate number of lines needed based on width and spacing
-  const lineCount =
-    Math.ceil(numericWidth / spacing) + Math.ceil(height / spacing);
+  // Use larger spacing on mobile for fewer lines
+  const mobileSpacing = spacing * 1.5; // Reduced spacing for better mobile coverage
+  const lineCount = Math.ceil(numericWidth / spacing) + Math.ceil(height / spacing);
+  const mobileLineCount = Math.ceil(numericWidth / mobileSpacing) + Math.ceil(height / mobileSpacing);
 
-  // Generate diagonal lines
+  // Generate diagonal lines for desktop
   const lines = [];
   for (let i = 0; i < lineCount; i++) {
     const startX = i * spacing;
@@ -35,17 +37,39 @@ export const DiagonalPattern = ({
     );
   }
 
+  // Generate diagonal lines for mobile (better coverage and more slanted)
+  const mobileLines = [];
+  // Add extra lines to ensure full screen coverage
+  const extraLines = 3;
+  for (let i = -extraLines; i < mobileLineCount + extraLines; i++) {
+    const startX = i * mobileSpacing;
+    // Make lines more slanted and extend beyond screen edges for mobile
+    const extendedHeight = height * 1.5; // Make lines taller for better slant
+    const startY = height;
+    const endX = startX + extendedHeight;
+    const endY = 0;
+    
+    mobileLines.push(
+      <path
+        key={i}
+        d={`M${startX} ${startY}L${endX} ${endY}`}
+        stroke={color}
+        strokeWidth={strokeWidth * 1.2} // Slightly thicker for mobile
+      />,
+    );
+  }
+
   return (
-    <div className="relative border-[1px] border-[#A7C6ED] rounded-none shadow-sm">
-      {/* Horizontal border extensions to connect with vertical page lines */}
+    <div className="relative md:border-[1px] md:border-[#A7C6ED] md:rounded-none md:shadow-sm">
+      {/* Horizontal border extensions to connect with vertical page lines - hidden on mobile */}
       {/* Top border extension - left side */}
-      <div className="absolute -left-16 top-0 w-16 h-[1.5px] bg-[#A7C6ED]"></div>
+      <div className="hidden md:block absolute -left-16 top-0 w-16 h-[1.5px] bg-[#A7C6ED]"></div>
       {/* Top border extension - right side */}
-      <div className="absolute -right-16 top-0 w-16 h-[1.5px] bg-[#A7C6ED]"></div>
+      <div className="hidden md:block absolute -right-16 top-0 w-16 h-[1.5px] bg-[#A7C6ED]"></div>
       {/* Bottom border extension - left side */}
-      <div className="absolute -left-16 bottom-0 w-16 h-[1.5px] bg-[#A7C6ED]"></div>
+      <div className="hidden md:block absolute -left-16 bottom-0 w-16 h-[1.5px] bg-[#A7C6ED]"></div>
       {/* Bottom border extension - right side */}
-      <div className="absolute -right-16 bottom-0 w-16 h-[1.5px] bg-[#A7C6ED]"></div>
+      <div className="hidden md:block absolute -right-16 bottom-0 w-16 h-[1.5px] bg-[#A7C6ED]"></div>
       {/* Top-left diamond */}
       <div className="hidden lg:block absolute -left-2 -top-2 z-20">
         <svg
@@ -191,7 +215,23 @@ export const DiagonalPattern = ({
         </svg>
       </div>
 
+      {/* Mobile SVG - fewer lines, no borders, extended viewBox for better coverage */}
       <svg
+        className="block md:hidden"
+        width="100%"
+        height={height}
+        viewBox={`-100 0 ${numericWidth + 200} ${height * 1.5}`}
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style={{ overflow: 'visible', width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}
+      >
+        {mobileLines}
+      </svg>
+
+      {/* Desktop SVG - full pattern with borders */}
+      <svg
+        className="hidden md:block"
         width={width}
         height={height}
         viewBox={`0 0 ${numericWidth} ${height}`}

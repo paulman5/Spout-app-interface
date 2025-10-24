@@ -49,16 +49,16 @@ const steps = [
 
 export function HowSpoutWorks() {
   return (
-    <section className="w-full py-20 relative">
+    <section className="w-full py-8 sm:py-12 lg:py-20 relative">
       {/* Background grain for this section */}
       <BgGrain className="absolute inset-0 w-full h-full z-0" />
-      <div className="w-full max-w-6xl mx-auto px-8">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-lora font-normal text-[#004040] mb-6">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-lora font-normal text-[#004040] mb-4 sm:mb-6">
             How <span className="font-medium">Spout</span> works
           </h2>
-          <p className="text-lg lg:text-xl font-noto-sans text-[#334155] max-w-4xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl font-noto-sans text-[#334155] max-w-4xl mx-auto">
             Spout bridges the gap between traditional finance and DeFi by
             tokenizing investment-grade corporate bonds, providing stable yields
             while maintaining the benefits of blockchain technology.
@@ -69,13 +69,13 @@ export function HowSpoutWorks() {
         <div className="relative space-y-0">
           {/* Decorative diamonds at corners of entire section */}
           {/* Top-left diamond */}
-          <div className="hidden lg:block absolute -left-3 -top-3 z-20">
+          <div className="hidden sm:block absolute -left-2 sm:-left-3 -top-2 sm:-top-3 z-20">
             <svg
-              width="24"
-              height="24"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
-              className="text-blue-300"
+              className="text-blue-300 sm:w-6 sm:h-6"
             >
               <path
                 d="M12 2L22 12L12 22L2 12L12 2Z"
@@ -86,13 +86,13 @@ export function HowSpoutWorks() {
             </svg>
           </div>
           {/* Top-right diamond */}
-          <div className="hidden lg:block absolute -right-3 -top-3 z-20">
+          <div className="hidden sm:block absolute -right-2 sm:-right-3 -top-2 sm:-top-3 z-20">
             <svg
-              width="24"
-              height="24"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
-              className="text-blue-300"
+              className="text-blue-300 sm:w-6 sm:h-6"
             >
               <path
                 d="M12 2L22 12L12 22L2 12L12 2Z"
@@ -103,13 +103,13 @@ export function HowSpoutWorks() {
             </svg>
           </div>
           {/* Bottom-left diamond */}
-          <div className="hidden lg:block absolute -left-3 -bottom-3 z-20">
+          <div className="hidden sm:block absolute -left-2 sm:-left-3 -bottom-2 sm:-bottom-3 z-20">
             <svg
-              width="24"
-              height="24"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
-              className="text-blue-300"
+              className="text-blue-300 sm:w-6 sm:h-6"
             >
               <path
                 d="M12 2L22 12L12 22L2 12L12 2Z"
@@ -120,13 +120,13 @@ export function HowSpoutWorks() {
             </svg>
           </div>
           {/* Bottom-right diamond */}
-          <div className="hidden lg:block absolute -right-3 -bottom-3 z-20">
+          <div className="hidden sm:block absolute -right-2 sm:-right-3 -bottom-2 sm:-bottom-3 z-20">
             <svg
-              width="24"
-              height="24"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
-              className="text-blue-300"
+              className="text-blue-300 sm:w-6 sm:h-6"
             >
               <path
                 d="M12 2L22 12L12 22L2 12L12 2Z"
@@ -150,16 +150,16 @@ export function HowSpoutWorks() {
               <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gray-300 transform -translate-x-1/2"></div>
               {/* Content - alternates left/right */}
               <div
-                className={`flex items-center bg-white py-6 px-6 min-h-[300px] ${index % 2 === 0 ? "lg:order-1" : "lg:order-2"}`}
+                className={`flex items-center bg-white py-4 sm:py-6 px-4 sm:px-6 min-h-[250px] sm:min-h-[300px] ${index % 2 === 0 ? "lg:order-1" : "lg:order-2"}`}
               >
                 <div>
-                  <div className="inline-block bg-blue-100 text-[#004040] px-3 py-1.5 rounded text-sm font-semibold mb-3">
+                  <div className="inline-block bg-blue-100 text-[#004040] px-2 sm:px-3 py-1 sm:py-1.5 rounded text-xs sm:text-sm font-semibold mb-2 sm:mb-3">
                     {step.number}
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-lora font-normal text-[#004040] mb-3">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-lora font-normal text-[#004040] mb-2 sm:mb-3">
                     {step.title}
                   </h3>
-                  <p className="text-base lg:text-lg font-noto-sans font-normal text-[#475569] leading-relaxed">
+                  <p className="text-sm sm:text-base lg:text-lg font-noto-sans font-normal text-[#475569] leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -167,11 +167,11 @@ export function HowSpoutWorks() {
 
               {/* Image - alternates right/left */}
               <div
-                className={`flex justify-center bg-white items-center relative bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:35px_35px] px-6 py-6 min-h-[300px] ${index % 2 === 0 ? "lg:order-2" : "lg:order-1"}`}
+                className={`flex justify-center bg-white items-center relative bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:35px_35px] px-4 sm:px-6 py-4 sm:py-6 min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] ${index % 2 === 0 ? "lg:order-2" : "lg:order-1"}`}
               >
                 {/* Gradient fade overlay - fades from bottom (visible) to top (hidden) */}
                 <div className="absolute inset-0 bg-gradient-to-t from-transparent from-0% via-transparent via-50% to-gray-50 to-100% pointer-events-none"></div>
-                <div className="w-full max-w-[250px] h-[250px] relative z-10 flex items-center justify-center">
+                <div className="w-full max-w-[180px] sm:max-w-[220px] lg:max-w-[250px] h-[180px] sm:h-[220px] lg:h-[250px] relative z-10 flex items-center justify-center">
                   <Image
                     src={step.image}
                     alt={step.imageAlt}

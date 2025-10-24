@@ -88,119 +88,222 @@ export const Footer: React.FC<FooterProps> = ({
       ref={footerRef}
       className="bg-gray-50 text-gray-900 relative flex flex-col w-full h-full justify-between select-none z-0"
     >
-      {/* Vertical lines for footer */}
-      <div className="absolute inset-0 pointer-events-none z-0">
+      {/* Vertical lines for footer - hidden on mobile */}
+      <div className="hidden md:block absolute inset-0 pointer-events-none z-0">
         {/* Left vertical line */}
         <div className="absolute left-4 top-0 bottom-0 w-[1.5px] bg-[#A7C6ED]"></div>
         {/* Right vertical line */}
         <div className="absolute right-4 top-0 bottom-0 w-[1.5px] bg-[#A7C6ED]"></div>
       </div>
       <div className="container mx-auto flex flex-col lg:flex-row justify-between w-full gap-12 py-12 px-6 lg:px-16 max-w-7xl relative z-10">
-        {/* Left side - Logo and copyright */}
-        <div className="space-y-6 lg:max-w-xs">
-          <div className="flex items-center mb-4">
-            <Image
-              src="/Spout_complete.png"
-              alt="Spout Finance logo"
-              width={150}
-              height={40}
-              className="h-10 w-auto"
-            />
+        {/* Mobile Layout - Logo and copyright at top, links below */}
+        <div className="lg:hidden space-y-8">
+          {/* Logo and copyright */}
+          <div className="space-y-4">
+            <div className="flex items-center mb-4">
+              <Image
+                src="/Spout_complete.png"
+                alt="Spout Finance logo"
+                width={150}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </div>
+            <p className="text-sm text-gray-600">{copyrightText}</p>
           </div>
-          <p className="text-sm text-gray-600">{copyrightText}</p>
+
+          {/* Links in three separate divs */}
+          <div className="space-y-6">
+            {/* Platform and Company on left */}
+            <div className="flex justify-between">
+              {/* Platform Column */}
+              <div className="flex-1">
+                <h4 className="font-semibold text-gray-400 mb-3 text-sm uppercase tracking-wider">
+                  PLATFORM
+                </h4>
+                <ul className="space-y-2">
+                  {leftLinks.map((link, index) => (
+                    <li key={index}>
+                      <Link
+                        href={link.href}
+                        className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-sm"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Company Column */}
+              <div className="flex-1">
+                <h4 className="font-semibold text-gray-400 mb-3 text-sm uppercase tracking-wider">
+                  COMPANY
+                </h4>
+                <ul className="space-y-2">
+                  {rightLinks.map((link, index) => (
+                    <li key={index}>
+                      <Link
+                        href={link.href}
+                        className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-sm"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Social on right */}
+            <div>
+              <h4 className="font-semibold text-gray-400 mb-3 text-sm uppercase tracking-wider">
+                SOCIAL
+              </h4>
+              <ul className="space-y-2">
+                <li>
+                  <a
+                    href="https://www.linkedin.com/company/spoutfinance/posts/?feedView=all"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-sm"
+                  >
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://t.me/+BCqhsA4Nmv0wZDU5"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-sm"
+                  >
+                    Telegram
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://x.com/0xspout"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-sm"
+                  >
+                    X
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        {/* Right side - Links grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-16">
-          {/* Platform Column */}
-          <div>
-            <h4 className="font-semibold text-gray-400 mb-4 text-sm uppercase tracking-wider">
-              PLATFORM
-            </h4>
-            <ul className="space-y-3">
-              {leftLinks.map((link, index) => (
-                <li key={index}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-base"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+        {/* Desktop Layout - Original layout */}
+        <div className="hidden lg:flex lg:flex-row lg:justify-between lg:w-full lg:gap-12">
+          {/* Left side - Logo and copyright */}
+          <div className="space-y-6 lg:max-w-xs">
+            <div className="flex items-center mb-4">
+              <Image
+                src="/Spout_complete.png"
+                alt="Spout Finance logo"
+                width={150}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </div>
+            <p className="text-sm text-gray-600">{copyrightText}</p>
           </div>
 
-          {/* Company Column */}
-          <div>
-            <h4 className="font-semibold text-gray-400 mb-4 text-sm uppercase tracking-wider">
-              COMPANY
-            </h4>
-            <ul className="space-y-3">
-              {rightLinks.map((link, index) => (
-                <li key={index}>
-                  <Link
-                    href={link.href}
+          {/* Right side - Links grid */}
+          <div className="grid grid-cols-3 gap-16">
+            {/* Platform Column */}
+            <div>
+              <h4 className="font-semibold text-gray-400 mb-4 text-sm uppercase tracking-wider">
+                PLATFORM
+              </h4>
+              <ul className="space-y-3">
+                {leftLinks.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-base"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company Column */}
+            <div>
+              <h4 className="font-semibold text-gray-400 mb-4 text-sm uppercase tracking-wider">
+                COMPANY
+              </h4>
+              <ul className="space-y-3">
+                {rightLinks.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-base"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Social Column */}
+            <div>
+              <h4 className="font-semibold text-gray-400 mb-4 text-sm uppercase tracking-wider">
+                SOCIAL
+              </h4>
+              <ul className="space-y-3">
+                <li>
+                  <a
+                    href="https://www.linkedin.com/company/spoutfinance/posts/?feedView=all"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-base"
                   >
-                    {link.label}
-                  </Link>
+                    LinkedIn
+                  </a>
                 </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Social Column */}
-          <div>
-            <h4 className="font-semibold text-gray-400 mb-4 text-sm uppercase tracking-wider">
-              SOCIAL
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="https://www.linkedin.com/company/spoutfinance/posts/?feedView=all"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-base"
-                >
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://t.me/+BCqhsA4Nmv0wZDU5"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-base"
-                >
-                  Telegram
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://x.com/0xspout"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-base"
-                >
-                  X
-                </a>
-              </li>
-            </ul>
+                <li>
+                  <a
+                    href="https://t.me/+BCqhsA4Nmv0wZDU5"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-base"
+                  >
+                    Telegram
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://x.com/0xspout"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-base"
+                  >
+                    X
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Disclaimer Section */}
-      <div className="border-t-[1.5px] border-[#A7C6ED] relative z-10">
+      {/* Disclaimer Section - Hidden on mobile */}
+      <div className="hidden md:block border-t-[1.5px] border-[#A7C6ED] relative z-10">
         {/* Top-left diamond */}
-        <div className="hidden lg:block absolute left-2 -top-2 z-20">
+        <div className="hidden sm:block absolute left-1 sm:left-2 -top-1 sm:-top-2 z-20">
           <svg
-            width="16"
-            height="16"
+            width="12"
+            height="12"
             viewBox="0 0 24 24"
             fill="none"
-            className="text-blue-300"
+            className="text-blue-300 sm:w-4 sm:h-4"
           >
             <path
               d="M12 2L22 12L12 22L2 12L12 2Z"
@@ -212,13 +315,13 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* Top-right diamond */}
-        <div className="hidden lg:block absolute right-2 -top-2 z-20">
+        <div className="hidden sm:block absolute right-1 sm:right-2 -top-1 sm:-top-2 z-20">
           <svg
-            width="16"
-            height="16"
+            width="12"
+            height="12"
             viewBox="0 0 24 24"
             fill="none"
-            className="text-blue-300"
+            className="text-blue-300 sm:w-4 sm:h-4"
           >
             <path
               d="M12 2L22 12L12 22L2 12L12 2Z"

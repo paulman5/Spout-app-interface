@@ -31,23 +31,23 @@ export function FAQSection() {
   };
 
   return (
-    <section className="w-full py-8 relative">
+    <section className="w-full py-4 sm:py-6 lg:py-8 relative">
       {/* Background grain for this section */}
       <BgGrain className="absolute inset-0 w-full h-full z-0" />
       {/* Section content */}
-      <div className="w-full max-w-7xl mx-auto px-8 lg:px-16 pb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 pb-8 sm:pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start">
           {/* Left Column - Header */}
           <div>
-            <div className="text-sm font-medium text-[#475569] mb-4 tracking-wider">
+            <div className="text-xs sm:text-sm font-medium text-[#475569] mb-3 sm:mb-4 tracking-wider">
               [ FAQ ]
             </div>
-            <h2 className="text-4xl lg:text-5xl font-lora font-normal text-[#004040] mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-lora font-normal text-[#004040] mb-4 sm:mb-6">
               Frequently asked
               <br />
               questions
             </h2>
-            <p className="text-lg font-noto-sans font-normal text-[#475569] leading-relaxed">
+            <p className="text-base sm:text-lg font-noto-sans font-normal text-[#475569] leading-relaxed">
               Everything you need to know about Spout and
               <br />
               how we're changing decentralized investing.
@@ -55,7 +55,7 @@ export function FAQSection() {
           </div>
 
           {/* Right Column - FAQ Items */}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {faqs.map((faq, index) => (
               <div
                 key={index}
@@ -63,13 +63,13 @@ export function FAQSection() {
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                  className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
                 >
-                  <span className="text-lg font-noto-sans font-medium text-[#004040] pr-4">
+                  <span className="text-sm sm:text-base lg:text-lg font-noto-sans font-medium text-[#004040] pr-2 sm:pr-4">
                     {faq.question}
                   </span>
                   <svg
-                    className={`w-6 h-6 text-[#004040] flex-shrink-0 transition-transform ${
+                    className={`w-5 h-5 sm:w-6 sm:h-6 text-[#004040] flex-shrink-0 transition-transform ${
                       openIndex === index ? "rotate-180" : ""
                     }`}
                     fill="none"
@@ -85,8 +85,8 @@ export function FAQSection() {
                   </svg>
                 </button>
                 {openIndex === index && (
-                  <div className="px-6 pb-5 pt-2 border-t bg-white border-gray-200">
-                    <p className="text-base font-noto-sans text-[#475569] leading-relaxed">
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-5 pt-2 border-t bg-white border-gray-200">
+                    <p className="text-sm sm:text-base font-noto-sans text-[#475569] leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>

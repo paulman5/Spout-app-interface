@@ -109,10 +109,10 @@ export function PartnerTicker() {
 
   return (
     <div className="w-full rounded-lg border border-gray-300 overflow-hidden">
-      <div className="flex items-center">
+      <div className="flex flex-col sm:flex-row items-center">
         {/* Fixed "Compatible With Leading Networks" box */}
-        <div className="bg-white rounded-l-lg px-8 py-6 border-r border-gray-300 flex-shrink-0">
-          <h3 className="text-lg font-noto-sans text-[#334155] font-semibold text-center leading-tight">
+        <div className="bg-white rounded-t-lg sm:rounded-l-lg sm:rounded-t-none px-4 sm:px-6 lg:px-8 py-4 sm:py-6 border-b sm:border-b-0 sm:border-r border-gray-300 flex-shrink-0 w-full sm:w-auto">
+          <h3 className="text-base sm:text-lg font-noto-sans text-[#334155] font-semibold text-center leading-tight">
             Compatible With
             <br />
             Leading Networks
@@ -141,13 +141,13 @@ export function PartnerTicker() {
                   className="focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 rounded group"
                   aria-label={partner.alt}
                 >
-                  <div className="bg-white px-20 py-4 border-r border-gray-200 transition-all duration-300 ease-out flex items-center justify-center min-w-[180px] hover:bg-gray-50 relative">
+                  <div className="bg-white px-6 sm:px-8 lg:px-12 py-4 sm:py-5 lg:py-6 border-r border-gray-200 transition-all duration-300 ease-out flex items-center justify-center min-w-[140px] sm:min-w-[160px] lg:min-w-[180px] hover:bg-gray-50 relative">
                     <Image
                       src={partner.src}
                       alt={partner.alt}
                       width={80}
                       height={80}
-                      className="h-16 w-auto max-w-[120px] object-contain transition-all duration-300 ease-out group-hover:scale-105"
+                      className="h-10 sm:h-12 lg:h-14 w-auto max-w-[100px] sm:max-w-[120px] lg:max-w-[140px] object-contain transition-all duration-300 ease-out group-hover:scale-105"
                       draggable={false}
                     />
                   </div>

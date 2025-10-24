@@ -6,43 +6,43 @@ import BgGrain from "@/components/bg-grain-svg";
 
 export function ProofOfReserveLanding() {
   return (
-    <section className="w-full py-8 relative">
+    <section className="w-full py-4 sm:py-6 lg:py-8 relative">
       {/* Background grain for this section */}
       <BgGrain className="absolute inset-0 w-full h-full z-0" />
       {/* Section content */}
-      <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 lg:px-16 pb-8">
+      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 pb-8">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl lg:text-5xl font-lora font-normal text-[#004040] mb-6">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-lora font-normal text-[#004040] mb-4 sm:mb-6">
             <span className="font-medium">Proof</span> of Reserve
           </h2>
-          <p className="text-lg font-noto-sans font-normal text-[#475569] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg font-noto-sans font-normal text-[#475569] max-w-3xl mx-auto leading-relaxed">
             Every token is fully backed 1:1 by investment-grade bond ETFs, held
             by qualified U.S. custodians for maximum security.
           </p>
         </div>
 
         {/* Vault Image with Company Logos */}
-        <div className="flex justify-center items-center mb-20">
+        <div className="flex justify-center items-center mb-8 sm:mb-12 lg:mb-16">
           <Image
             src="/svg-assets/landingpage/spout-reserve.svg"
             alt="Proof of Reserve Vault"
             width={900}
             height={600}
-            className="w-full max-w-5xl h-auto"
+            className="w-full max-w-4xl sm:max-w-5xl h-auto"
           />
         </div>
 
         {/* Statistics Section */}
-        <div className="relative bg-white border border-gray-300 rounded-lg shadow-sm px-4 py-6 lg:py-3 max-w-[1100px] mx-auto">
+        <div className="relative bg-white border border-gray-300 rounded-none shadow-sm px-4 sm:px-6 py-4 sm:py-6 lg:py-3 max-w-[1100px] mx-auto">
           {/* Top-left diamond */}
-          <div className="hidden lg:block absolute -left-3 -top-3 z-20">
+          <div className="hidden sm:block absolute -left-2 sm:-left-3 -top-2 sm:-top-3 z-20">
             <svg
-              width="24"
-              height="24"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
-              className="text-blue-300"
+              className="text-blue-300 sm:w-6 sm:h-6"
             >
               <path
                 d="M12 2L22 12L12 22L2 12L12 2Z"
@@ -54,13 +54,13 @@ export function ProofOfReserveLanding() {
           </div>
 
           {/* Top-right diamond */}
-          <div className="hidden lg:block absolute -right-3 -top-3 z-20">
+          <div className="hidden sm:block absolute -right-2 sm:-right-3 -top-2 sm:-top-3 z-20">
             <svg
-              width="24"
-              height="24"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
-              className="text-blue-300"
+              className="text-blue-300 sm:w-6 sm:h-6"
             >
               <path
                 d="M12 2L22 12L12 22L2 12L12 2Z"
@@ -72,22 +72,22 @@ export function ProofOfReserveLanding() {
           </div>
 
           {/* Bottom-left lock and diamond */}
-          <div className="hidden lg:block absolute left-0 bottom-0 z-20">
+          <div className="hidden sm:block absolute left-0 bottom-0 z-20">
             <Image
               src="/svg-assets/landingpage/spout-lock.svg"
               alt="Lock"
               width={40}
               height={40}
-              className="w-10 h-10"
+              className="w-8 h-8 sm:w-10 sm:h-10"
             />
           </div>
-          <div className="hidden lg:block absolute -left-3 -bottom-3 z-30">
+          <div className="hidden sm:block absolute -left-2 sm:-left-3 -bottom-2 sm:-bottom-3 z-30">
             <svg
-              width="24"
-              height="24"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
-              className="text-blue-300"
+              className="text-blue-300 sm:w-6 sm:h-6"
             >
               <path
                 d="M12 2L22 12L12 22L2 12L12 2Z"
@@ -99,22 +99,22 @@ export function ProofOfReserveLanding() {
           </div>
 
           {/* Bottom-right coins and diamond */}
-          <div className="hidden lg:block absolute right-0 bottom-0 z-20">
+          <div className="hidden sm:block absolute right-0 bottom-0 z-20">
             <Image
               src="/svg-assets/landingpage/spout-coins.svg"
               alt="Coins"
               width={40}
               height={40}
-              className="w-10 h-10"
+              className="w-8 h-8 sm:w-10 sm:h-10"
             />
           </div>
-          <div className="hidden lg:block absolute -right-3 -bottom-3 z-30">
+          <div className="hidden sm:block absolute -right-2 sm:-right-3 -bottom-2 sm:-bottom-3 z-30">
             <svg
-              width="24"
-              height="24"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
-              className="text-blue-300"
+              className="text-blue-300 sm:w-6 sm:h-6"
             >
               <path
                 d="M12 2L22 12L12 22L2 12L12 2Z"
@@ -125,20 +125,20 @@ export function ProofOfReserveLanding() {
             </svg>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             {/* Assets On-Chain */}
-            <div className="flex items-center gap-3 border border-gray-200 rounded-none px-6 lg:px-10 py-4 w-full lg:w-auto">
-              <div className="flex items-center justify-center w-10 h-10 flex-shrink-0">
+            <div className="flex items-center gap-2 sm:gap-3 border border-gray-200 rounded-none px-4 sm:px-6 lg:px-10 py-3 sm:py-4 w-full sm:w-auto">
+              <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0">
                 <Image
                   src="/svg-assets/landingpage/spout-bank.svg"
                   alt="Bank"
                   width={40}
                   height={40}
-                  className="w-10 h-10"
+                  className="w-8 h-8 sm:w-10 sm:h-10"
                 />
               </div>
               <div>
-                <div className="text-xl font-bold text-[#004040]">$200k</div>
+                <div className="text-lg sm:text-xl font-bold text-[#004040]">$200k</div>
                 <div className="text-xs text-[#475569] whitespace-nowrap">
                   Assets On-Chain
                 </div>
@@ -146,18 +146,18 @@ export function ProofOfReserveLanding() {
             </div>
 
             {/* Investments Tokenized */}
-            <div className="flex items-center gap-3 border border-gray-200 rounded-none px-6 lg:px-10 py-4 w-full lg:w-auto">
-              <div className="flex items-center justify-center w-10 h-10 flex-shrink-0">
+            <div className="flex items-center gap-2 sm:gap-3 border border-gray-200 rounded-none px-4 sm:px-6 lg:px-10 py-3 sm:py-4 w-full sm:w-auto">
+              <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0">
                 <Image
                   src="/svg-assets/landingpage/spout-category.svg"
                   alt="Category"
                   width={40}
                   height={40}
-                  className="w-10 h-10"
+                  className="w-8 h-8 sm:w-10 sm:h-10"
                 />
               </div>
               <div>
-                <div className="text-xl font-bold text-[#004040]">1,124</div>
+                <div className="text-lg sm:text-xl font-bold text-[#004040]">1,124</div>
                 <div className="text-xs text-[#475569] whitespace-nowrap">
                   Investments Tokenized
                 </div>
@@ -165,18 +165,18 @@ export function ProofOfReserveLanding() {
             </div>
 
             {/* Proof-of-Reserve Verified */}
-            <div className="flex items-center gap-3 border border-gray-200 rounded-none px-6 lg:px-10 py-4 w-full lg:w-auto">
-              <div className="flex items-center justify-center w-10 h-10 flex-shrink-0">
+            <div className="flex items-center gap-2 sm:gap-3 border border-gray-200 rounded-none px-4 sm:px-6 lg:px-10 py-3 sm:py-4 w-full sm:w-auto">
+              <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0">
                 <Image
                   src="/svg-assets/landingpage/spout-shield-tick.svg"
                   alt="Shield"
                   width={40}
                   height={40}
-                  className="w-10 h-10"
+                  className="w-8 h-8 sm:w-10 sm:h-10"
                 />
               </div>
               <div>
-                <div className="text-xl font-bold text-[#004040]">100%</div>
+                <div className="text-lg sm:text-xl font-bold text-[#004040]">100%</div>
                 <div className="text-xs text-[#475569] whitespace-nowrap">
                   Proof-of-Reserve Verified
                 </div>
