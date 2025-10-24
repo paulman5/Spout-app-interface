@@ -138,7 +138,9 @@ export function ProofOfReserveLanding() {
                 />
               </div>
               <div>
-                <div className="text-lg sm:text-xl font-bold text-[#004040]">$200k</div>
+                <div className="text-lg sm:text-xl font-bold text-[#004040]">
+                  $200k
+                </div>
                 <div className="text-xs text-[#475569] whitespace-nowrap">
                   Assets On-Chain
                 </div>
@@ -157,7 +159,9 @@ export function ProofOfReserveLanding() {
                 />
               </div>
               <div>
-                <div className="text-lg sm:text-xl font-bold text-[#004040]">1,124</div>
+                <div className="text-lg sm:text-xl font-bold text-[#004040]">
+                  1,124
+                </div>
                 <div className="text-xs text-[#475569] whitespace-nowrap">
                   Investments Tokenized
                 </div>
@@ -176,7 +180,9 @@ export function ProofOfReserveLanding() {
                 />
               </div>
               <div>
-                <div className="text-lg sm:text-xl font-bold text-[#004040]">100%</div>
+                <div className="text-lg sm:text-xl font-bold text-[#004040]">
+                  100%
+                </div>
                 <div className="text-xs text-[#475569] whitespace-nowrap">
                   Proof-of-Reserve Verified
                 </div>

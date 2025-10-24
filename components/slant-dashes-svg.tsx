@@ -20,8 +20,10 @@ export const DiagonalPattern = ({
   // Calculate number of lines needed based on width and spacing
   // Use larger spacing on mobile for fewer lines
   const mobileSpacing = spacing * 1.5; // Reduced spacing for better mobile coverage
-  const lineCount = Math.ceil(numericWidth / spacing) + Math.ceil(height / spacing);
-  const mobileLineCount = Math.ceil(numericWidth / mobileSpacing) + Math.ceil(height / mobileSpacing);
+  const lineCount =
+    Math.ceil(numericWidth / spacing) + Math.ceil(height / spacing);
+  const mobileLineCount =
+    Math.ceil(numericWidth / mobileSpacing) + Math.ceil(height / mobileSpacing);
 
   // Generate diagonal lines for desktop
   const lines = [];
@@ -48,7 +50,7 @@ export const DiagonalPattern = ({
     const startY = height;
     const endX = startX + extendedHeight;
     const endY = 0;
-    
+
     mobileLines.push(
       <path
         key={i}
@@ -224,7 +226,11 @@ export const DiagonalPattern = ({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
-        style={{ overflow: 'visible', width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}
+        style={{
+          overflow: "visible",
+          width: "100vw",
+          marginLeft: "calc(-50vw + 50%)",
+        }}
       >
         {mobileLines}
       </svg>
