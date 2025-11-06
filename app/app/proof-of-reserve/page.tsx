@@ -17,7 +17,7 @@ import { useContractAddress } from "@/lib/addresses";
 
 function ProofOfReservePage() {
   const lqdToken = useContractAddress("SpoutLQDtoken") as `0x${string}`;
-  const { totalSupply, isLoading: totalSupplyLoading } = useTotalSupply(lqdToken);
+  const { totalSupply, isLoading: totalSupplyLoading } = useTotalSupply();
   const { price: currentPrice, isLoading: priceLoading } = useMarketData("LQD");
   const { data: lqdYield, isLoading: lqdYieldLoading } = useYieldData("LQD");
 
@@ -27,7 +27,7 @@ function ProofOfReservePage() {
 
   const typedTotalReserves = totalReserves as bigint | null;
   const yieldRate = lqdYield?.yield || 0;
-  const totalSupplyTokens = totalSupply ? Number(totalSupply) / 1e6 : 0;
+  const totalSupplyTokens = totalSupply || 0;
 
   const handleRequestReserves = () => {
     requestReserves(379);

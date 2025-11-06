@@ -31,8 +31,8 @@ export default function OnchainIDChecker() {
   // Track if we've waited for data to settle
   const [hasWaitedForSettlement, setHasWaitedForSettlement] =
     React.useState(false);
-  const { balance: usdcBalance, isLoading: usdcLoading } =
-    useUSDCTokenBalance(userAddress);
+  const { amountUi: usdcBalance, isLoading: usdcLoading } =
+    useUSDCTokenBalance();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();

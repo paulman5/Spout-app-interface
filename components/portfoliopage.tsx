@@ -21,6 +21,7 @@ import {
 import { LoadingSpinner } from "@/components/loadingSpinner";
 import Link from "next/link";
 import { useTokenBalance } from "@/hooks/view/onChain/useTokenBalance";
+import { useContractAddress } from "@/lib/addresses";
 import { useMarketData } from "@/hooks/api/useMarketData";
 import { useAccount } from "wagmi";
 import { useCurrentUser } from "@/hooks/auth/useCurrentUser";
@@ -31,18 +32,21 @@ import {
   TooltipProvider,
 } from "@/components/ui/tooltip";
 import { useRecentActivity } from "@/hooks/view/onChain/useRecentActivity";
+import { useMemo } from "react";
 import { useReturns } from "@/hooks/api/useReturns";
 import PortfolioPerformance from "@/components/features/portfolio/portfolioperformance";
 import PortfolioActivity from "@/components/features/portfolio/portfolioactivity";
 
 export default function PortfolioPage() {
   const { address: userAddress } = useAccount();
+  const lqdToken = useContractAddress("SpoutLQDtoken") as `0x${string}`;
   const {
-    balance: tokenBalance,
-    symbol: tokenSymbol,
+    amountUi,
     isLoading: balanceLoading,
-    isError: balanceError,
-  } = useTokenBalance(userAddress);
+    error: balanceError,
+  } = useTokenBalance(lqdToken, (userAddress ?? null) as any);
+  const tokenBalance = amountUi ? Number(amountUi) : 0;
+  const tokenSymbol = "SLQD";
 
   const {
     price: currentPrice,
@@ -61,6 +65,29 @@ export default function PortfolioPage() {
     hasMore,
     loadMore,
   } = useRecentActivity(userAddress);
+
+  type PortfolioActivityItem = {
+    id: string;
+    action: "Purchased" | "Sold";
+    transactionType: "BUY" | "SELL";
+    ticker: string;
+    amount: string;
+    value: string;
+    time: string;
+  };
+  const activitiesForUI: PortfolioActivityItem[] = useMemo(
+    () =>
+      (activities ?? []).map((a) => ({
+        id: a.id,
+        action: a.action === "Burned" ? "Sold" : "Purchased",
+        transactionType: a.action === "Burned" ? "SELL" : "BUY",
+        ticker: (a as any).symbol ?? "SLQD",
+        amount: a.amount,
+        value: a.value,
+        time: a.time,
+      })),
+    [activities],
+  );
 
   // Format number to 3 decimals, matching holdings value
   const formatNumber = (num: number) => {
@@ -380,7 +407,7 @@ export default function PortfolioPage() {
             {/* Activity Tab */}
             <TabsContent value="activity" className="space-y-6">
               <PortfolioActivity
-                activities={activities}
+                activities={activitiesForUI}
                 activitiesLoading={activitiesLoading}
                 hasMore={hasMore}
                 loadMore={loadMore}

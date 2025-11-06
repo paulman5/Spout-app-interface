@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
 
     // Call the external API
     const response = await fetchWithTimeout(
-      "https://rwa-deploy-backend.onrender.com/user/kyc-signature",
+      "https://rwa-deploy-backend-w6i2.onrender.com/user/kyc-signature",
       {
         method: "POST",
         headers: {

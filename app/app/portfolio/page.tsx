@@ -91,6 +91,29 @@ function PortfolioPage() {
     hasMore,
     loadMore,
   } = useRecentActivity();
+  // Map ActivityEvent[] -> PortfolioActivity's expected ActivityType[]
+  type PortfolioActivityItem = {
+    id: string;
+    action: "Purchased" | "Sold";
+    transactionType: "BUY" | "SELL";
+    ticker: string;
+    amount: string;
+    value: string;
+    time: string;
+  };
+  const activitiesForUI: PortfolioActivityItem[] = useMemo(
+    () =>
+      (activities ?? []).map((a) => ({
+        id: a.id,
+        action: a.action === "Burned" ? "Sold" : "Purchased",
+        transactionType: a.action === "Burned" ? "SELL" : "BUY",
+        ticker: (a as any).symbol ?? "SLQD",
+        amount: a.amount,
+        value: a.value,
+        time: a.time,
+      })),
+    [activities],
+  );
   // Format number to 3 decimals, matching holdings value
   const formatNumber = (num: number) => {
     return num.toLocaleString(undefined, {
@@ -258,7 +281,7 @@ function PortfolioPage() {
             <TabsContent value="activity" className="space-y-6">
               <div className="border border-[#004040]/15 bg-white rounded-none shadow-sm">
                 <PortfolioActivity
-                  activities={activities}
+                  activities={activitiesForUI}
                   activitiesLoading={activitiesLoading}
                   hasMore={hasMore}
                   loadMore={loadMore}

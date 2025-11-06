@@ -82,7 +82,8 @@ export function PartnerTicker() {
       },
       { threshold: 0.1 },
     );
-    if (tickerRef.current) observer.observe(tickerRef.current);
+    const tickerNode = tickerRef.current;
+    if (tickerNode) observer.observe(tickerNode);
 
     let frame: number;
     const animate = () => {
@@ -108,7 +109,8 @@ export function PartnerTicker() {
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener("resize", updateSegmentWidth);
-      if (tickerRef.current) observer.disconnect();
+      if (tickerNode) observer.unobserve(tickerNode);
+      observer.disconnect();
     };
   }, [isPaused]);
 
