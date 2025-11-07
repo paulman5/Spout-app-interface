@@ -55,7 +55,14 @@ const CustomConnectButton = () => {
               if (!connected) {
                 return (
                   <button
-                    onClick={openConnectModal}
+                    onClick={() => {
+                      if (openConnectModal) {
+                        openConnectModal();
+                      } else {
+                        console.error("❌ openConnectModal is not available. Check RainbowKit configuration.");
+                        alert("Wallet connection is not available. Please check your browser console for details.");
+                      }
+                    }}
                     className="text-white text-sm focus:outline-none hover:text-white bg-black cursor-pointer rounded-xl px-3 py-2 transition-colors border border-gray-600/50 hover:border-emerald-700 hover:!bg-emerald-700"
                   >
                     Connect Wallet

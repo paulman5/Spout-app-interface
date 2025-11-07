@@ -18,6 +18,13 @@ export function useOrdersContract() {
     token: `0x${string}`,
     usdcAmount: bigint,
   ) {
+    console.log("🔍 buyAsset called with:", {
+      ordersAddress,
+      adfsFeedId: adfsFeedId.toString(),
+      ticker,
+      token,
+      usdcAmount: usdcAmount.toString(),
+    });
     return writeContract({
       address: ordersAddress as `0x${string}`,
       abi: ordersABI,

@@ -14,9 +14,15 @@ import { useConnectModal } from "@rainbow-me/rainbowkit";
 const queryClient = new QueryClient();
 
 // Custom config with more reliable RPC endpoints
+const projectId = process.env.NEXT_PUBLIC_RAINBOWKIT_PROJECT_ID || process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID || "";
+
+if (!projectId) {
+  console.warn("⚠️ NEXT_PUBLIC_RAINBOWKIT_PROJECT_ID is not set. Wallet connection may not work properly.");
+}
+
 const config = getDefaultConfig({
   appName: "Spout Finance",
-  projectId: process.env.NEXT_PUBLIC_RAINBOWKIT_PROJECT_ID ?? "",
+  projectId: projectId,
   chains: [pharos],
   transports: {
     [pharos.id]: http("https://testnet.dplabs-internal.com"),

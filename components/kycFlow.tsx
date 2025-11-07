@@ -34,9 +34,7 @@ import {
   Shield,
 } from "lucide-react";
 import gatewayABI from "@/abi/gateway.json";
-
 import { useContractAddress } from "@/lib/addresses";
-import { countryCodes } from "@/lib/utils";
 import { useOnchainID } from "@/hooks/view/onChain/useOnchainID";
 import { useAddClaim } from "@/hooks/writes/onChain/useAddClaim";
 import { useIdentityVerification } from "@/hooks/view/onChain/useIdentityVerification";

@@ -17,6 +17,7 @@ import {
   BarChart3,
   Users,
   TrendingUp,
+  Coins,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -116,6 +117,20 @@ export function DashboardSidebarNavClient() {
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
+            <SidebarMenuButton asChild isActive={isActive("/app/borrow")}>
+              <Link href="/app/borrow" className="flex items-center gap-3">
+                <Coins className="h-4 w-4" />
+                <span>Borrow</span>
+                <Badge
+                  variant="secondary"
+                  className="ml-auto bg-secondary/20 text-[#004040] border border-secondary"
+                >
+                  New
+                </Badge>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
             <SidebarMenuButton asChild isActive={isActive("/app/proof-of-reserve")}>
               <Link href="/app/proof-of-reserve" className="flex items-center gap-3">
                 <TrendingUp className="h-4 w-4" />
@@ -150,7 +165,14 @@ export function DashboardSidebarNavClient() {
           {/* EVM connect button or wallet pill */}
           {!isConnected ? (
             <Button
-              onClick={() => openConnectModal && openConnectModal()}
+              onClick={() => {
+                if (openConnectModal) {
+                  openConnectModal();
+                } else {
+                  console.error("❌ openConnectModal is not available. Check RainbowKit configuration.");
+                  alert("Wallet connection is not available. Please check your browser console for details.");
+                }
+              }}
               className="mt-3 bg-black text-white text-sm rounded-none px-4 py-2 border border-gray-600/50 hover:bg-black/90 focus:outline-none w-full justify-center"
             >
               Connect Wallet

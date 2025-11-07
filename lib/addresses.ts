@@ -55,6 +55,8 @@ export function useContractAddress(contract: keyof typeof contractaddresses) {
     console.error(
       `No address for chainId ${chainId} in mapping ${String(contract)}`,
     );
+  } else {
+    console.log(`📍 Contract address for ${String(contract)} on chain ${chainId}:`, value);
   }
   return value as any;
 }
