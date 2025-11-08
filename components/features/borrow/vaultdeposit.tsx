@@ -280,9 +280,15 @@ export function VaultDeposit() {
         {/* Vault Info Display */}
         <div className="p-4 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
           <div className="flex justify-between items-center">
-            <span className="text-sm text-slate-600">Collateral (SLQD)</span>
-            <span className="text-lg font-semibold text-[#004040]">{vaultCollateralFormatted}</span>
+            <span className="text-sm text-slate-600">Available Collateral (SLQD)</span>
+            <span className="text-lg font-semibold text-[#004040]">{collateralBalanceFormatted}</span>
           </div>
+          {vault && Number(vaultCollateralFormatted) > 0 && (
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-slate-600">Vault Collateral (SLQD)</span>
+              <span className="text-lg font-semibold text-[#004040]">{vaultCollateralFormatted}</span>
+            </div>
+          )}
           {Number(vaultDebtFormatted) > 0 && (
             <div className="flex justify-between items-center">
               <span className="text-sm text-slate-600">Debt</span>
