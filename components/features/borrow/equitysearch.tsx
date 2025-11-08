@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Search, X } from "lucide-react";
 import { StockData } from "@/lib/types/markets";
 import { fetchAllStocks } from "@/lib/services/marketData";
-import { useMarketData } from "@/hooks/api/useMarketData";
+import { clientCacheHelpers } from "@/lib/cache/client-cache";
 import { Badge } from "@/components/ui/badge";
 import { TrendingUp, TrendingDown } from "lucide-react";
 
@@ -20,9 +20,78 @@ export function EquitySearch({ onSelectEquity, selectedEquity }: EquitySearchPro
   const [isFocused, setIsFocused] = useState(false);
   const [stocks, setStocks] = useState<StockData[]>([]);
   const [loading, setLoading] = useState(true);
+  const [tokenData, setTokenData] = useState<any[]>([]);
+  const [currentPrice, setCurrentPrice] = useState<number | null>(null);
+  const [lqdPrevClose, setLqdPrevClose] = useState<number | null>(null);
   
-  // Fetch LQD price using the same method as trade page
-  const { price: lqdPrice, isLoading: lqdPriceLoading, previousClose: lqdPrevClose } = useMarketData("LQD");
+  // Fetch chart data (same as trade page and vault deposit)
+  useEffect(() => {
+    async function fetchChartData() {
+      try {
+        const json = await clientCacheHelpers.fetchStockData("LQD");
+        if (json.error) {
+          console.log("📊 Chart data error:", json.error);
+          setTokenData([]);
+        } else {
+          setTokenData(json.data || []);
+        }
+      } catch (e) {
+        console.log("📊 Chart data fetch error:", e);
+        setTokenData([]);
+      }
+    }
+    fetchChartData();
+  }, []);
+
+  // Fetch LQD price using the exact same method as trade page and vault deposit
+  useEffect(() => {
+    let isMounted = true;
+    let lastKnownPrice: number | null = null;
+
+    async function fetchPriceData() {
+      try {
+        const json = await clientCacheHelpers.fetchMarketData("LQD");
+        if (!isMounted) return;
+
+        if (json.price && json.price > 0) {
+          // Only update if price has actually changed
+          if (lastKnownPrice !== json.price) {
+            setCurrentPrice(json.price);
+            lastKnownPrice = json.price;
+          }
+        } else {
+          setCurrentPrice(null); // No valid price data
+        }
+        
+        // Also update previous close if available
+        if (json.previousClose && json.previousClose > 0) {
+          setLqdPrevClose(json.previousClose);
+        }
+      } catch (e) {
+        if (isMounted) {
+          setCurrentPrice(null); // Error fetching price
+        }
+      }
+    }
+
+    // Initial fetch
+    fetchPriceData();
+
+    // Refetch every 5 minutes to reduce Vercel compute usage (same as trade page)
+    const interval = setInterval(fetchPriceData, 5 * 60 * 1000);
+
+    return () => {
+      isMounted = false;
+      clearInterval(interval);
+    };
+  }, []);
+
+  // Use chart data as primary source for price (same as trade page and vault deposit)
+  const chartLatestPrice =
+    tokenData.length > 0 ? tokenData[tokenData.length - 1].close : null;
+  
+  // Use currentPrice (from market data API) as fallback only if chart data is not available
+  const lqdPrice = chartLatestPrice || currentPrice || null;
 
   // Fetch stocks on mount
   useEffect(() => {
@@ -132,7 +201,7 @@ export function EquitySearch({ onSelectEquity, selectedEquity }: EquitySearchPro
             // Delay to allow click on results
             setTimeout(() => setIsFocused(false), 200);
           }}
-          className="pl-10 pr-10 bg-white border-slate-200 focus:border-[#004040]"
+          className="w-96 pl-10 pr-10 bg-white border-slate-200 focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:ring-[#004040]/20"
         />
         {searchTerm && (
           <button

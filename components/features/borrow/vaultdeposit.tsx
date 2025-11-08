@@ -336,7 +336,7 @@ export function VaultDeposit() {
         <div className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="amount">Amount (SLQD)</Label>
-            <div className="flex gap-2">
+            <div className="flex gap-2 items-center">
               <Input
                 id="amount"
                 type="number"
@@ -345,7 +345,7 @@ export function VaultDeposit() {
                 onChange={(e) => setDepositAmount(e.target.value)}
                 min="0"
                 step="0.000001"
-                className="flex-1"
+                className="w-48 focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:ring-[#004040]/20"
               />
               <Button
                 variant="outline"
