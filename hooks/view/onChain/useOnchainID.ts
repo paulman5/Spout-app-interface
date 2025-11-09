@@ -6,7 +6,7 @@ import onchainidABI from "@/abi/onchainid.json";
 import { AbiCoder, keccak256 } from "ethers";
 import { contractaddresses } from "@/lib/addresses";
 import { useChainId } from "wagmi";
-import { pharos } from "@/lib/chainconfigs/pharos";
+import { base } from "@/lib/chainconfigs/base";
 import identityRegistryABI from "@/abi/identityregistry.json";
 import tokenABI from "@/abi/token.json";
 import { useState, useEffect } from "react";
@@ -23,7 +23,7 @@ export function useOnchainID({
   topic?: number;
 }) {
   const chainId = useChainId();
-  const isPharos = chainId === pharos.id;
+  const isBase = chainId === base.id;
 
   // Initialize cache from localStorage immediately to prevent initial fetch
   const [cachedIdentityAddress, setCachedIdentityAddress] = useState<
@@ -38,7 +38,7 @@ export function useOnchainID({
   // First check if onchain ID actually exists using ID factory
   // Only fetch if we don't have a cached result or if user address changed
   const canReadIdentity =
-    !!userAddress && !!idFactoryAddress && isPharos && !cachedIdentityAddress;
+    !!userAddress && !!idFactoryAddress && isBase && !cachedIdentityAddress;
 
   console.log("[useOnchainID] 🔍 Fetch decision:", {
     userAddress,
@@ -76,7 +76,7 @@ export function useOnchainID({
 
   // Check verification status using identity registry
   const canReadVerification =
-    !!userAddress && !!identityRegistryAddress && isPharos;
+    !!userAddress && !!identityRegistryAddress && isBase;
   const {
     data: isVerified,
     isLoading: isVerificationLoading,
