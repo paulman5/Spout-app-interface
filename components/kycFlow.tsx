@@ -45,7 +45,7 @@ interface KYCSignatureResponse {
 
 export default function KYCFlow() {
   const { address, isConnected } = useAccount();
-  const { checkAndSwitchNetwork, isBase } = useNetwork();
+  const { checkAndSwitchNetwork, isPharos } = useNetwork();
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedCountry, setSelectedCountry] = useState<number>(91);
   const [onchainIDAddressCurrent, setOnchainIDAddressCurrent] =
@@ -130,13 +130,13 @@ export default function KYCFlow() {
     }
   }, [address]);
 
-  // Automatically switch to Base Sepolia when wallet connects with better error handling
+  // Automatically switch to Pharos when wallet connects with better error handling
   useEffect(() => {
     if (isConnected) {
       checkAndSwitchNetwork().catch((error: Error) => {
         console.error("Failed to switch network in KYC flow:", error);
         setError(
-          "Failed to switch to Base Sepolia network. Please try switching manually.",
+          "Failed to switch to Pharos network. Please try switching manually.",
         );
       });
     }
@@ -490,18 +490,18 @@ export default function KYCFlow() {
           <div className="flex justify-center">
             <div
               className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-                isBase
+                isPharos
                   ? "bg-emerald-100 text-emerald-800"
                   : "bg-yellow-100 text-yellow-800"
               }`}
             >
               <div
                 className={`w-2 h-2 rounded-full mr-2 ${
-                  isBase ? "bg-emerald-500" : "bg-yellow-500"
+                  isPharos ? "bg-emerald-500" : "bg-yellow-500"
                 }`}
               />
-              {isBase
-                ? "Connected to Base Sepolia Network"
+              {isPharos
+                ? "Connected to Pharos Network"
                 : "Wrong Network - Switching..."}
             </div>
           </div>
@@ -611,7 +611,7 @@ export default function KYCFlow() {
                           isDeploying ||
                           isConfirming ||
                           !isConnected ||
-                          !isBase
+                          !isPharos
                         }
                         className="w-full"
                       >
@@ -622,8 +622,8 @@ export default function KYCFlow() {
                               ? "Deploying Identity..."
                               : "Confirming Transaction..."}
                           </>
-                        ) : !isBase ? (
-                          "Switch to Base Sepolia Network"
+                        ) : !isPharos ? (
+                          "Switch to Pharos Network"
                         ) : (
                           "Deploy Identity"
                         )}
@@ -739,7 +739,7 @@ export default function KYCFlow() {
                           !address ||
                           !onchainIDAddress ||
                           isLoading ||
-                          !isBase ||
+                          !isPharos ||
                           (cooldownUntilMs !== null &&
                             cooldownRemainingSeconds > 0)
                         }
@@ -750,8 +750,8 @@ export default function KYCFlow() {
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                             Getting KYC Signature...
                           </>
-                        ) : !isBase ? (
-                          "Switch to Base Sepolia Network"
+                        ) : !isPharos ? (
+                          "Switch to Pharos Network"
                         ) : cooldownUntilMs !== null &&
                           cooldownRemainingSeconds > 0 ? (
                           `Retry in ${Math.max(1, cooldownRemainingSeconds)}s`
@@ -805,7 +805,7 @@ export default function KYCFlow() {
                           isAddingClaim ||
                           isConfirmingClaim ||
                           !kycSignature ||
-                          !isBase
+                          !isPharos
                         }
                         className="w-full"
                       >
@@ -816,8 +816,8 @@ export default function KYCFlow() {
                               ? "Adding Verification Claim..."
                               : "Confirming Transaction..."}
                           </>
-                        ) : !isBase ? (
-                          "Switch to Base Sepolia Network"
+                        ) : !isPharos ? (
+                          "Switch to Pharos Network"
                         ) : (
                           "Add Verification Claim"
                         )}

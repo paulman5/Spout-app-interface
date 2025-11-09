@@ -237,7 +237,7 @@ export function EquitySearch({ onSelectEquity, selectedEquity }: EquitySearchPro
               </div>
             ) : filteredStocks.length === 0 ? (
               <div className="p-4 text-center text-sm text-slate-500">
-                No equities found matching "{searchTerm}"
+                No equities found matching &quot;{searchTerm}&quot;
               </div>
             ) : (
               <div className="divide-y divide-slate-100">

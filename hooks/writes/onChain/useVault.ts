@@ -1,6 +1,7 @@
 "use client";
 
 import { useWriteContract, useReadContract, useAccount, useConfig, usePublicClient } from "wagmi";
+import { decodeEventLog } from "viem";
 import vatABI from "@/abi/vat.json";
 import gemJoinABI from "@/abi/gemjoin.json";
 import stablecoinJoinABI from "@/abi/stablecoinjoin.json";
@@ -68,7 +69,7 @@ export function useVault() {
   // Get collateral balance
   const { data: collateralBalance, refetch: refetchCollateralBalance } = useReadContract({
     address: collateralAddress,
-    abi: erc20ABI.abi as any,
+    abi: erc20ABI as any,
     functionName: "balanceOf",
     args: userAddress ? [userAddress] : undefined,
     query: { enabled: Boolean(collateralAddress && userAddress) },
@@ -94,12 +95,13 @@ export function useVault() {
   // Debug logging for ilk parameters
   useEffect(() => {
     if (vatAddress && ilkData) {
+      const ilkArray = ilkData as any[];
       console.log("📊 LQD Ilk Parameters (on-chain):", {
-        Art: ilkData[0]?.toString(),
-        rate: ilkData[1]?.toString(),
-        spot: ilkData[2]?.toString(),
-        line: ilkData[3]?.toString(),
-        dust: ilkData[4]?.toString(),
+        Art: ilkArray[0]?.toString(),
+        rate: ilkArray[1]?.toString(),
+        spot: ilkArray[2]?.toString(),
+        line: ilkArray[3]?.toString(),
+        dust: ilkArray[4]?.toString(),
         par: par?.toString(),
       });
     }
@@ -130,11 +132,11 @@ export function useVault() {
       // Find VaultCreated event
       const vaultCreatedEvent = receipt.logs.find((log: any) => {
         try {
-          const decoded = publicClient.decodeEventLog({
+          const decoded = decodeEventLog({
             abi: vatABI.abi as any,
             data: log.data,
             topics: log.topics,
-          });
+          }) as any;
           return decoded.eventName === "VaultCreated";
         } catch {
           return false;
@@ -142,11 +144,11 @@ export function useVault() {
       });
 
       if (vaultCreatedEvent) {
-        const decoded = publicClient.decodeEventLog({
+        const decoded = decodeEventLog({
           abi: vatABI.abi as any,
           data: vaultCreatedEvent.data,
           topics: vaultCreatedEvent.topics,
-        });
+        }) as any;
         const newVaultId = (decoded.args as any).vaultId as bigint;
         setSelectedVaultId(newVaultId);
       }

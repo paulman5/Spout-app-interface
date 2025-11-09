@@ -27,6 +27,9 @@ export function VaultPositions({ selectedEquity }: VaultPositionsProps) {
   const { address } = useAccount();
   const [tokenData, setTokenData] = useState<any[]>([]);
   const [currentPrice, setCurrentPrice] = useState<number | null>(null);
+  
+  // Fetch all vaults owned by the user - must be called before early returns
+  const vatAddress = useContractAddress("vat") as `0x${string}` | undefined;
 
   // Fetch LQD price (same as vault deposit)
   useEffect(() => {
@@ -118,8 +121,6 @@ export function VaultPositions({ selectedEquity }: VaultPositionsProps) {
     );
   }
 
-  // Fetch all vaults owned by the user
-  const vatAddress = useContractAddress("vat") as `0x${string}` | undefined;
   const liquidationThreshold = 1.1; // From deployment: liqRatio = 1.1 (110%)
   
   // Helper function to calculate health rate for a vault
