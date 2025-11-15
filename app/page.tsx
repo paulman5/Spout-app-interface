@@ -1,5 +1,4 @@
 import {
-  AnimatedFooterSection,
   CTASection,
   FAQSection,
   HeroSection,
@@ -59,11 +58,6 @@ export default function HomePage() {
         {/* CTA Section */}
         <div className="relative z-10 w-full">
           <CTASection />
-        </div>
-
-        {/* Animated Footer */}
-        <div className="relative z-10 w-full">
-          <AnimatedFooterSection />
         </div>
       </div>
     </>

@@ -1,14 +1,17 @@
-import "./globals.css";
-import "@rainbow-me/rainbowkit/styles.css";
-import "react-toastify/dist/ReactToastify.css";
-import type { Metadata } from "next";
-import { Public_Sans, IBM_Plex_Mono, Lora, Noto_Sans } from "next/font/google";
-import { Providers } from "@/components/providers";
 import { RumInit } from "@/aws/rum-init";
-import { cn } from "@/lib/utils";
-import { ConditionalNavbar } from "@/components/conditionalNavbar";
-import { Analytics } from "@vercel/analytics/next";
 import { AnnouncementBarWrapper } from "@/components/announcement-bar-wrapper";
+import {
+  ConditionalFooter,
+  ConditionalNavbar,
+} from "@/components/conditionalNavbar";
+import { Providers } from "@/components/providers";
+import { cn } from "@/lib/utils";
+import "@rainbow-me/rainbowkit/styles.css";
+import { Analytics } from "@vercel/analytics/next";
+import type { Metadata } from "next";
+import { IBM_Plex_Mono, Lora, Noto_Sans, Public_Sans } from "next/font/google";
+import "react-toastify/dist/ReactToastify.css";
+import "./globals.css";
 
 const publicSans = Public_Sans({
   subsets: ["latin"],
@@ -83,7 +86,7 @@ export default async function RootLayout({
           publicSans.variable,
           ibmPlexMono.variable,
           lora.variable,
-          notoSans.variable,
+          notoSans.variable
         )}
       >
         <RumInit />
@@ -91,6 +94,7 @@ export default async function RootLayout({
           <AnnouncementBarWrapper />
           <ConditionalNavbar />
           <main className="flex-1">{children}</main>
+          <ConditionalFooter />
         </Providers>
         <Analytics />
       </body>

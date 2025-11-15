@@ -1,4 +1,4 @@
-import HeroSection from "@/components/features/faq/hero-section";
+import FaqPage from "@/components/features/faq/faq-page";
 
 export const metadata = {
   title: "FAQ - Spout",
@@ -9,7 +9,7 @@ export const metadata = {
 export default function FaqPageRoot() {
   return (
     <>
-      <HeroSection />
+      <FaqPage />
     </>
   );
 }

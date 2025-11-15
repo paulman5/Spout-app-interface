@@ -1,7 +1,8 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import Navbar from "@/components/navBar";
+import { usePathname } from "next/navigation";
+import { AnimatedFooterSection } from "./features/root";
 
 export function ConditionalNavbar() {
   const pathname = usePathname();
@@ -22,5 +23,9 @@ export function ConditionalFooter() {
     return null;
   }
 
-  return null; // Footer is handled in layout
+  return (
+    <div className="relative z-10 w-full">
+      <AnimatedFooterSection />
+    </div>
+  );
 }
