@@ -1,14 +1,13 @@
 import {
-  AnnouncementBar,
+  AnimatedFooterSection,
+  CTASection,
+  FAQSection,
   HeroSection,
   HowSpoutWorks,
+  InTheNews,
+  InvestmentDifferent,
   ProofOfReserveLanding,
   UnlockingFinance,
-  InvestmentDifferent,
-  InTheNews,
-  FAQSection,
-  CTASection,
-  AnimatedFooterSection,
 } from "@/components/features/root";
 
 export default function HomePage() {

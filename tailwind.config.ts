@@ -1,6 +1,5 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
-import colors from "tailwindcss/colors";
 
 // Helper function to flatten the color palette
 function flattenColorPalette(colors: Record<string, any>) {
@@ -14,7 +13,7 @@ function flattenColorPalette(colors: Record<string, any>) {
       return Object.entries(values).map(([key, value]) => {
         return { [`${color}-${key}`]: value };
       });
-    }),
+    })
   );
 }
 
@@ -85,6 +84,14 @@ const config = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        spout: {
+          primary: "#004040",
+          accent: "#A7C6ED",
+          "text-muted": "#525252",
+          "text-secondary": "#3D5678",
+          "text-gray": "#8C9BAA",
+          border: "#E5E5E5",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -108,8 +115,26 @@ const config = {
             height: "0",
           },
         },
+        "accordion-down": {
+          from: {
+            height: "0",
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+          },
+        },
+        "accordion-up": {
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            height: "0",
+          },
+        },
       },
       animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
@@ -123,7 +148,7 @@ export default config;
 function addVariablesForColors({ addBase, theme }: any) {
   const flattenedColors = flattenColorPalette(theme("colors"));
   const newVars = Object.fromEntries(
-    Object.entries(flattenedColors).map(([key, val]) => [`--${key}`, val]),
+    Object.entries(flattenedColors).map(([key, val]) => [`--${key}`, val])
   );
 
   addBase({

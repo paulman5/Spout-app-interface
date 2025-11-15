@@ -53,6 +53,11 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom Spout colors */
+    --spout-primary: 180 100% 12.5%;
+    --spout-accent: 211 60% 80%;
+    --spout-text-muted: 0 0% 32%;
   }
 
   .dark {
